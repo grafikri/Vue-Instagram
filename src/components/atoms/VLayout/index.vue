@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="v-a-layout">
     <slot></slot>
   </div>
 </template>
 
 <style lang="sass" scoped>
-  div:first-child
+  .v-a-layout
     max-width: 950px
     margin: auto
 </style>

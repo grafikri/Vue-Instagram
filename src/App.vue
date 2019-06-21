@@ -11,8 +11,7 @@
       name="Tony Stark"
       :size="48"
     />-->
-    <VUserBrowse
-      title="Stories"
+    <VTimeLine
       :users="[{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'},{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'},{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'},{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'},{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'}]"
     />
   </div>
@@ -20,24 +19,12 @@
 
 <script>
 
-import VIcon from '@/components/atoms/VIcon'
-import VUserBrowse from '@/components/organisms/VUserBrowse'
-import VUserLine from '@/components/molecules/VUserLine'
-import VImage from '@/components/atoms/VImage'
-import VInputSearch from '@/components/molecules/VInputSearch'
-import VHeader from '@/components/organisms/VHeader'
-import VLayout from '@/components/atoms/VLayout'
+import VTimeLine from '@/components/templates/VTimeLine'
 
 export default {
   name: "App",
   components: {
-    VIcon,
-    VUserLine,
-    VInputSearch,
-    VHeader,
-    VLayout,
-    VImage,
-    VUserBrowse
+    VTimeLine
   }
 }
 </script>
