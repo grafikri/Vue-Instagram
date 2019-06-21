@@ -1,5 +1,6 @@
 {
-  "name": "vue-instagram",
+  "name": "Vue-Instagram",
+  "author": "Serhan Coşkun",
   "version": "0.1.0",
   "private": true,
   "scripts": {
