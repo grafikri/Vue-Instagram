@@ -5,18 +5,21 @@
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>-->
-    <VIcon class="compass"/>
+    <!-- <VIcon class="mini-search"/> -->
+    <VInputSearch/>
   </div>
 </template>
 
 <script>
 
 import VIcon from '@/components/atoms/VIcon'
+import VInputSearch from '@/components/molecules/VInputSearch'
 
 export default {
   name: "App",
   components: {
-    VIcon
+    VIcon,
+    VInputSearch
   }
 }
 </script>

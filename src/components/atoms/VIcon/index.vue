@@ -3,19 +3,34 @@
 </template>
 
 <style lang="sass" scoped>
+
+$tiny: 10px
+$medium: 24px
+
 span
   display: block
-  background-image: url($icons-link)
   background-repeat: no-repeat
-  height: 24px
-  width: 24px
 
   &.compass
+    background-image: url($icons-link-first-part)
     background-position: -205px -200px
+    height: $medium
+    width: $medium
   &.user
+    background-image: url($icons-link-first-part)
     background-position: -130px -274px
+    height: $medium
+    width: $medium
   &.fav
+    background-image: url($icons-link-first-part)
     background-position: -286px -274px
+    height: $medium
+    width: $medium
+  &.mini-search
+    background-image: url($icons-link-second-part)
+    background-position: -387px -337px
+    height: $tiny
+    width: $tiny
 
 </style>
 
