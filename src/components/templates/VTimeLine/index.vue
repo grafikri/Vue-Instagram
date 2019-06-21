@@ -1,5 +1,7 @@
 <template>
   <div class="v-t-time-line">
+    <VHeader/>
+    <div class="space"></div>
     <VLayout>
       <div class="container">
         <div class="left">Timeline</div>
@@ -26,6 +28,7 @@
 
 <script>
 
+import VHeader from '@/components/organisms/VHeader'
 import VLayout from '@/components/atoms/VLayout'
 import VUserLine from '@/components/molecules/VUserLine'
 import VUserBrowse from '@/components/organisms/VUserBrowse'
@@ -37,7 +40,8 @@ export default {
   components: {
     VUserBrowse,
     VLayout,
-    VUserLine
+    VUserLine,
+    VHeader
   },
   props: {
     users: Array
@@ -48,12 +52,17 @@ export default {
 
 <style lang="sass" scoped>
   .v-t-time-line
+    .space
+      height: 62px
     .container
       display: flex
+      padding:
+        left: 10px
+        right: 10px
       .left
         flex-grow: 1
       .right
-        width: 324px
+        width: 290px
         padding:
           left: 30px
         .section
