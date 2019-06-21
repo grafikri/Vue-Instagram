@@ -31,6 +31,20 @@ span
     background-position: -387px -337px
     height: $tiny
     width: $tiny
+  &.comment
+    background-image: url($icons-link-first-part)
+    background-position: -247px -128px
+    height: $medium
+    width: $medium
+  &.bookmark
+    background-image: url($icons-link-first-part)
+    background-position: -52px -326px
+    height: $medium
+    width: $medium
+
+  
+
+  
 
 </style>
 
