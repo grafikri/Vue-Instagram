@@ -1,10 +1,10 @@
 <template>
-  <div class="v-m-vertical-story">
+  <div class="v-m-user-browse">
     <div class="header">
-      <p>Stories</p>
+      <p>{{ title }}</p>
       <p>Watch All</p>
     </div>
-    <div class="body">
+    <div class="body" :style="scrollStyle">
       <div :key="index" v-for="(user, index) in users" class="line">
         <VUserLine :photo="user.photo" :name="user.name" :desc="user.desc" :size="40"/>
       </div>
@@ -17,20 +17,31 @@
 import VUserLine from '@/components/molecules/VUserLine'
 
 export default {
-  name: "VVerticalStory",
+  name: "VUserBrowse",
   components: {
     VUserLine
   },
+  computed: {
+    scrollStyle() {
+      if (this.scroll) {
+        return {
+          height: this.scroll + "px",
+          overflow: "auto"
+        }
+      }
+    }
+  },
   props: {
-    users: Array
+    users: Array,
+    scroll: Number,
+    title: String
   }
 }
 </script>
 
 
 <style lang="sass" scoped>
-
-  .v-m-vertical-story
+  .v-m-user-browse
     @extend %box-style
     background: white
     padding:
@@ -51,8 +62,6 @@ export default {
           &:last-child
             text-align: right
     .body
-      height: 225px
-      overflow: auto
       .line
         margin:
           top: 12px
