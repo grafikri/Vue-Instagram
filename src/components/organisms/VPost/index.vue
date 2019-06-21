@@ -25,7 +25,14 @@
         <p class="view-info">{{ post.viewCount }} viewing</p>
         <VComment :name="user.name" :comment="user.comment"/>
         <p class="comment-count">View all {{ post.comments.count }} comments</p>
-        <VComment :name="post.comments.last.name" :comment="post.comments.last.comment"/>
+
+        <VComment
+          v-for="(item, index) in post.comments.list"
+          :key="index"
+          :name="item.name"
+          :comment="item.comment"
+        />
+
         <span class="date">{{ post.date }}</span>
       </div>
       <div class="share-input">share input</div>
@@ -68,15 +75,11 @@ export default {
           date: '',
           viewCount: 0,
           comments: {
+            count: 0,
             list: [{
               name: '',
               comment: ''
-            }],
-            count: 0,
-            last: {
-              name: '',
-              comment: ''
-            }
+            }]
           }
         }
       }
