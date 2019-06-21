@@ -6,13 +6,15 @@
     </div>
     <router-view/>-->
     <!-- <VIcon class="mini-search"/> -->
-    <VHeader/>
+    <VUserLine/>
   </div>
 </template>
 
 <script>
 
 import VIcon from '@/components/atoms/VIcon'
+import VUserLine from '@/components/molecules/VUserLine'
+import VImage from '@/components/atoms/VImage'
 import VInputSearch from '@/components/molecules/VInputSearch'
 import VHeader from '@/components/organisms/VHeader'
 import VLayout from '@/components/atoms/VLayout'
@@ -21,9 +23,11 @@ export default {
   name: "App",
   components: {
     VIcon,
+    VUserLine,
     VInputSearch,
     VHeader,
-    VLayout
+    VLayout,
+    VImage
   }
 }
 </script>
