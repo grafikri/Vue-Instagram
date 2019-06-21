@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <input type="text" placeholder="Ara">
+  <div :class="isFocus ? 'active' : ''">
+    <input type="text" @focus="handleFocus" @blur="handleBlur" placeholder="Search">
+
     <span class="icon">
       <VIcon class="mini-search"/>
     </span>
@@ -13,8 +14,21 @@ import VIcon from '@/components/atoms/VIcon'
 
 export default {
   name: "VInputSearch",
+  data() {
+    return {
+      isFocus: false
+    }
+  },
   components: {
     VIcon
+  },
+  methods: {
+    handleFocus() {
+      //this.isFocus = true
+    },
+    handleBlur() {
+      //this.isFocus = false
+    },
   }
 }
 </script>
@@ -34,11 +48,11 @@ export default {
         right: inherit
 
   input
-    background: #fafafa
+    background: $bg-color
     box-sizing: border-box
     width: 100%
     text-align: center
-    border: solid 1px #dbdbdb
+    border: solid 1px $stroke-color
     border-radius: 3px
     color: #262626
     outline: 0
@@ -56,7 +70,7 @@ export default {
       height: 10px
       display: block
       position: absolute
-      left: -45px
+      left: -65px
       right: 0px
       top: 0
       bottom: 0

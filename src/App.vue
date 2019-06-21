@@ -6,7 +6,7 @@
     </div>
     <router-view/>-->
     <!-- <VIcon class="mini-search"/> -->
-    <VInputSearch/>
+    <VHeader/>
   </div>
 </template>
 
@@ -14,12 +14,14 @@
 
 import VIcon from '@/components/atoms/VIcon'
 import VInputSearch from '@/components/molecules/VInputSearch'
+import VHeader from '@/components/organisms/VHeader'
 
 export default {
   name: "App",
   components: {
     VIcon,
-    VInputSearch
+    VInputSearch,
+    VHeader
   }
 }
 </script>
@@ -31,5 +33,11 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: $bg-color;
 }
 </style>
