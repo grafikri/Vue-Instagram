@@ -6,13 +6,19 @@
     </div>
     <router-view/>-->
     <!-- <VIcon class="mini-search"/> -->
-    <VUserLine/>
+    <!-- <VUserLine
+      photo="https://fakeimg.pl/200x200/?text=Photo&font=lobster"
+      name="Tony Stark"
+      :size="48"
+    />-->
+    <VVerticalStory/>
   </div>
 </template>
 
 <script>
 
 import VIcon from '@/components/atoms/VIcon'
+import VVerticalStory from '@/components/organisms/VVerticalStory'
 import VUserLine from '@/components/molecules/VUserLine'
 import VImage from '@/components/atoms/VImage'
 import VInputSearch from '@/components/molecules/VInputSearch'
@@ -27,7 +33,8 @@ export default {
     VInputSearch,
     VHeader,
     VLayout,
-    VImage
+    VImage,
+    VVerticalStory
   }
 }
 </script>

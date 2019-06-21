@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="image">
-      <VImage url="https://fakeimg.pl/200x200/?text=Photo&font=lobster" :width="64" rounded/>
+      <VImage v-if="photo" :url="photo" :width="size" rounded/>
     </div>
     <div class="titles">
-      <p>Title</p>
-      <p>SubTitle</p>
+      <p class="name" v-if="name">{{ name }}</p>
+      <p class="desc" v-if="desc">{{ desc }}</p>
     </div>
-    <div class="button">button</div>
+    <div class="button"></div>
   </div>
 </template>
 
@@ -23,11 +23,11 @@ export default {
     VImage
   },
   props: {
-    title: {
+    name: {
       type: String,
       default: ""
     },
-    subTitle: {
+    desc: {
       type: String,
       default: ""
     },
@@ -35,6 +35,10 @@ export default {
       type: String,
       default: ""
     },
+    size: {
+      type: Number,
+      default: 48
+    }
   }
 }
 </script>
@@ -49,6 +53,13 @@ export default {
         left: 10px
     p
       margin: 0
+      &.name
+        font-size: 14px
+        font-weight: bold
+      &.desc
+        font-size: 12px
+      
+
 </style>
 
 
