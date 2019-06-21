@@ -48,12 +48,11 @@ export default {
         right: inherit
 
   input
+    @extend %box-style
     background: $bg-color
     box-sizing: border-box
     width: 100%
     text-align: center
-    border: solid 1px $stroke-color
-    border-radius: 3px
     color: #262626
     outline: 0
     padding:

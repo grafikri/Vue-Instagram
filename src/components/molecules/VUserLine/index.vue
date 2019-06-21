@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="v-m-user-line">
     <div class="image">
       <VImage v-if="photo" :url="photo" :width="size" rounded/>
     </div>
@@ -44,9 +44,11 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  div:first-child
+  .v-m-user-line
     display: flex
     align-items: center
+    .image
+      line-height: 0
     .titles
       flex-grow: 1
       padding:

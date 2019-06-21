@@ -1,5 +1,5 @@
 <template>
-  <img :style="styleObject" :src="url">
+  <img class="v-a-image" :style="styleObject" :src="url">
 </template>
 
 <script>
@@ -26,7 +26,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-
 
 </style>
 
