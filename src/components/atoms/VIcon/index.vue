@@ -41,6 +41,13 @@ span
     background-position: -52px -326px
     height: $medium
     width: $medium
+  &.mini-fav
+    background-image: url($icons-link-first-part)
+    background-position: -273px -128px
+    height: 11px
+    width: 12px
+  
+
 
   
 

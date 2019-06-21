@@ -8,7 +8,13 @@
     <!-- <VTimeLine
       :users="[{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'},{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'},{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'},{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'},{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'}]"
     />-->
-    <VPost/>
+    <VPost
+      v-for="(content, index) in posts"
+      :key="index"
+      :post="content.post"
+      :user="content.user"
+    />
+    <!-- <VComment/> -->
   </div>
 </template>
 
@@ -16,12 +22,44 @@
 
 import VTimeLine from '@/components/templates/VTimeLine'
 import VPost from '@/components/organisms/VPost'
+import VComment from '@/components/molecules/VComment'
 
 export default {
   name: "App",
+  data() {
+    return {
+      posts: [
+        {
+          user: {
+            id: '123',
+            name: 'HULK',
+            photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster',
+            comment: 'Hi I am HULK'
+          },
+          post: {
+            photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster',
+            date: '2 hours ago',
+            viewCount: 200,
+            comments: {
+              list: [{
+                name: 'Spider-Man',
+                comment: 'I am here, too'
+              }],
+              count: 2,
+              last: {
+                name: 'Tony',
+                comment: 'Hello I am tony'
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
   components: {
     VTimeLine,
-    VPost
+    VPost,
+    VComment
   }
 }
 </script>
