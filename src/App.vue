@@ -5,26 +5,23 @@
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>-->
-    <!-- <VIcon class="mini-search"/> -->
-    <!-- <VUserLine
-      photo="https://fakeimg.pl/200x200/?text=Photo&font=lobster"
-      name="Tony Stark"
-      :size="48"
-    />-->
-    <VTimeLine
+    <!-- <VTimeLine
       :users="[{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'},{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'},{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'},{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'},{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'}]"
-    />
+    />-->
+    <VPost/>
   </div>
 </template>
 
 <script>
 
 import VTimeLine from '@/components/templates/VTimeLine'
+import VPost from '@/components/organisms/VPost'
 
 export default {
   name: "App",
   components: {
-    VTimeLine
+    VTimeLine,
+    VPost
   }
 }
 </script>
