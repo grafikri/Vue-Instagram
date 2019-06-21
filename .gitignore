@@ -221,3 +221,6 @@ fabric.properties
 .idea/sonarlint
 
 # End of https://www.gitignore.io/api/node,vuejs,webstorm,sublimetext,visualstudiocode
+
+
+package-lock.json
