@@ -15,13 +15,15 @@
 import VIcon from '@/components/atoms/VIcon'
 import VInputSearch from '@/components/molecules/VInputSearch'
 import VHeader from '@/components/organisms/VHeader'
+import VLayout from '@/components/atoms/VLayout'
 
 export default {
   name: "App",
   components: {
     VIcon,
     VInputSearch,
-    VHeader
+    VHeader,
+    VLayout
   }
 }
 </script>

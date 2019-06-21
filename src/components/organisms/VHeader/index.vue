@@ -1,30 +1,35 @@
 <template>
-  <div class="container">
-    <div class="left">
-      <div>
-        <VTextLogo/>
-        <div class="vertical-line"></div>
-        <div class="logo">
-          <VLogo/>
+  <div class="box">
+    <VLayout>
+      <div class="container">
+        <div class="left">
+          <div>
+            <VTextLogo/>
+            <div class="vertical-line"></div>
+            <div class="logo">
+              <VLogo/>
+            </div>
+          </div>
+        </div>
+        <div class="middle">
+          <VInputSearch/>
+        </div>
+        <div class="right">
+          <div>
+            <VIcon class="compass"/>
+            <VIcon class="fav"/>
+            <VIcon class="user"/>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="middle">
-      <VInputSearch/>
-    </div>
-    <div class="right">
-      <div>
-        <VIcon class="compass"/>
-        <VIcon class="fav"/>
-        <VIcon class="user"/>
-      </div>
-    </div>
+    </VLayout>
   </div>
 </template>
 
 
 <script>
 
+import VLayout from '@/components/atoms/VLayout'
 import VIcon from '@/components/atoms/VIcon'
 import VLogo from '@/components/atoms/VLogo'
 import VTextLogo from '@/components/atoms/VTextLogo'
@@ -36,7 +41,8 @@ export default {
     VIcon,
     VLogo,
     VTextLogo,
-    VInputSearch
+    VInputSearch,
+    VLayout
   }
 }
 </script>
@@ -44,17 +50,18 @@ export default {
 
 <style lang="sass" scoped>
 
+.box
+  background: white
+  border-bottom: 1px solid $stroke-color
+  padding:
+    top: 21px
+    bottom: 21px
+    left: 20px
+    right: 20px
+
 .container
   display: flex
   align-items: center
-  background: white
-  //border-bottom: 1px solid rgba(0,0,0,.0975)
-  border-bottom: 1px solid $stroke-color
-  padding:
-    top: 22px
-    bottom: 22px
-    left: 20px
-    right: 20px
 
   > div
     flex-grow: 1
