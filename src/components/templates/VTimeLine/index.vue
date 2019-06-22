@@ -1,10 +1,16 @@
 <template>
   <div class="v-t-time-line">
-    <VHeader/>
+    <div class="header-container">
+      <VHeader/>
+    </div>
     <div class="space"></div>
     <VLayout>
       <div class="container">
-        <div class="left">Timeline</div>
+        <div class="left">
+          <div class="post-container" v-for="(content, index) in timeLinePosts" :key="index">
+            <VPost :post="content.post" :user="content.user"/>
+          </div>
+        </div>
         <div class="right">
           <div class="section">
             <VUserLine
@@ -29,6 +35,7 @@
 <script>
 
 import VHeader from '@/components/organisms/VHeader'
+import VPost from '@/components/organisms/VPost'
 import VLayout from '@/components/atoms/VLayout'
 import VUserLine from '@/components/molecules/VUserLine'
 import VUserBrowse from '@/components/organisms/VUserBrowse'
@@ -41,10 +48,12 @@ export default {
     VUserBrowse,
     VLayout,
     VUserLine,
-    VHeader
+    VHeader,
+    VPost
   },
   props: {
-    users: Array
+    users: Array,
+    timeLinePosts: Array
   }
 }
 </script>
@@ -52,8 +61,11 @@ export default {
 
 <style lang="sass" scoped>
   .v-t-time-line
+    .header-container
+      position: fixed
+      width: 100%
     .space
-      height: 62px
+      height: 130px
     .container
       display: flex
       padding:
@@ -61,6 +73,9 @@ export default {
         right: 10px
       .left
         flex-grow: 1
+        .post-container
+          margin:
+            bottom: 60px
       .right
         width: 290px
         padding:
