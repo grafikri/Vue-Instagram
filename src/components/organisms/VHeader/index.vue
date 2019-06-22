@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div class="v-o-header" :class="{ minify: minify }">
     <VLayout>
       <div class="container">
         <div class="left">
@@ -43,6 +43,12 @@ export default {
     VTextLogo,
     VInputSearch,
     VLayout
+  },
+  props: {
+    minify: {
+      type: Boolean,
+      default: false
+    }
   }
 }
 </script>
@@ -50,47 +56,57 @@ export default {
 
 <style lang="sass" scoped>
 
-.box
+.v-o-header
   background: white
   border-bottom: 1px solid $stroke-color
+  transition:
+    property: padding
+    duration: 0.3s
   padding:
     top: 21px
     bottom: 21px
     left: 20px
     right: 20px
+  &.minify
+    padding:
+      top: 10px
+      bottom: 10px
+    .logo, .vertical-line
+      display: none !important
 
-.container
-  display: flex
-  align-items: center
 
-  > div
-    flex-grow: 1
-    flex-shrink: 0
-    flex-basis: 33%
-    &.left
-      div
-        display: flex
-        align-items: center
-      .vertical-line
-        height: 27px
-        border: solid 0.5px black
-        margin:
-          left: 15px
-          right: 15px
-      .logo
-        margin:
-          top: 5px
-        
-    &.right
-      text-align: right
-      div
-        display: flex
-        justify-content: flex-end
-        span
+  .container
+    display: flex
+    align-items: center
+
+    > div
+      flex-grow: 1
+      flex-shrink: 0
+      flex-basis: 33%
+      &.left
+        div
+          display: flex
+          align-items: center
+        .vertical-line
+          height: 27px
+          border: solid 0.5px black
           margin:
-            left: 30px
-    &.middle
-      text-align: center
+            left: 15px
+            right: 15px
+        .logo
+          margin:
+            top: 5px
+          
+      &.right
+        text-align: right
+        div
+          display: flex
+          justify-content: flex-end
+          span
+            margin:
+              left: 30px
+      &.middle
+        text-align: center
 
 </style>
 

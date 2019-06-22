@@ -24,9 +24,6 @@ export default {
   computed: {
     ...mapState(["posts"])
   },
-  methods: {
-
-  },
   components: {
     VPost,
     VTimeLine

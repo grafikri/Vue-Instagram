@@ -1,9 +1,9 @@
 <template>
   <div class="v-t-time-line">
-    <div class="header-container">
-      <VHeader/>
+    <div class="header-container" ref="header">
+      <VHeader :minify="minify"/>
     </div>
-    <div class="space"></div>
+    <div class="space" ref="space"></div>
     <VLayout>
       <div class="container">
         <div class="left">
@@ -51,9 +51,30 @@ export default {
     VHeader,
     VPost
   },
+  data() {
+    return {
+      minify: false
+    }
+  },
   props: {
     users: Array,
     timeLinePosts: Array
+  },
+  created() {
+    window.addEventListener('scroll', this.watchScroll)
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.watchScroll)
+  },
+  methods: {
+    watchScroll() {
+      let headerHeight = this.$refs.header.getBoundingClientRect().height
+      let spaceHeight = this.$refs.space.getBoundingClientRect().height
+      let spaceTop = this.$refs.space.getBoundingClientRect().top
+      let diff = headerHeight - spaceHeight
+
+      this.minify = spaceTop < diff
+    }
   }
 }
 </script>
