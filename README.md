@@ -1,4 +1,4 @@
-# Vue Instagram
+# Vue Instagram ...
 
 ## Project setup
 ```
