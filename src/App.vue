@@ -8,58 +8,39 @@
     <!-- <VTimeLine
       :users="[{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'},{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'},{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'},{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'},{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'}]"
     />-->
-    <VPost
+    <!-- <VPost
       v-for="(content, index) in posts"
       :key="index"
       :post="content.post"
       :user="content.user"
-    />
-    <!-- <VComment/> -->
+    />-->
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex"
 
-import VTimeLine from '@/components/templates/VTimeLine'
-import VPost from '@/components/organisms/VPost'
-import VComment from '@/components/molecules/VComment'
+import VButton from "@/components/atoms/VButton"
+import VTimeLine from "@/components/templates/VTimeLine"
+import VPost from "@/components/organisms/VPost"
+import VComment from "@/components/molecules/VComment"
 
 export default {
   name: "App",
-  data() {
-    return {
-      posts: [
-        {
-          user: {
-            id: '123',
-            name: 'HULK',
-            photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster',
-            comment: 'Hi I am HULK'
-          },
-          post: {
-            photo: 'https://fakeimg.pl/1000x1000/?text=Photo&font=lobster',
-            date: '2 hours ago',
-            viewCount: 200,
-            comments: {
-              list: [{
-                name: 'Spider-Man',
-                comment: 'I am here, too'
-              }, {
-                name: 'Ant-Man',
-                comment: 'I am here, too'
-              }],
-              count: 2
-            }
-          }
-        },
-
-      ]
+  created() { },
+  computed: {
+    ...mapState(["posts"])
+  },
+  methods: {
+    click() {
+      console.log("oksss")
     }
   },
   components: {
     VTimeLine,
     VPost,
-    VComment
+    VComment,
+    VButton
   }
 }
 </script>
