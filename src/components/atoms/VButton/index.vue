@@ -38,6 +38,8 @@ export default {
 
 <style lang="sass" scoped>
   .v-a-button
+    padding: 0
+    margin: 0
     text-decoration: none
     color: $primary-button-color
     background: none

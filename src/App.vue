@@ -14,16 +14,14 @@
       :post="content.post"
       :user="content.user"
     />-->
+    <VPostCommentInput/>
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex"
 
-import VButton from "@/components/atoms/VButton"
-import VTimeLine from "@/components/templates/VTimeLine"
-import VPost from "@/components/organisms/VPost"
-import VComment from "@/components/molecules/VComment"
+import VPostCommentInput from "@/components/molecules/VPostCommentInput"
 
 export default {
   name: "App",
@@ -31,16 +29,8 @@ export default {
   computed: {
     ...mapState(["posts"])
   },
-  methods: {
-    click() {
-      console.log("oksss")
-    }
-  },
   components: {
-    VTimeLine,
-    VPost,
-    VComment,
-    VButton
+    VPostCommentInput
   }
 }
 </script>
