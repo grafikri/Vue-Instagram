@@ -49,5 +49,7 @@ export default {
     font-weight: 600
     &:focus
       outline: none
+    &[disabled]
+      color: gray
 </style>
 

@@ -35,7 +35,12 @@
 
         <span class="date">{{ post.date }}</span>
       </div>
-      <div class="share-input">share input</div>
+      <div class="border"></div>
+      <div class="share-input">
+        <div>
+          <VPostCommentInput @submit="submit"/>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -47,10 +52,12 @@ import VIcon from '@/components/atoms/VIcon'
 import VImage from '@/components/atoms/VImage'
 import VComment from '@/components/molecules/VComment'
 import VUserLine from '@/components/molecules/VUserLine'
+import VPostCommentInput from "@/components/molecules/VPostCommentInput"
 
 export default {
   name: "VPost",
   components: {
+    VPostCommentInput,
     VUserLine,
     VComment,
     VImage,
@@ -84,6 +91,11 @@ export default {
         }
       }
     },
+  },
+  methods: {
+    submit(text) {
+      console.log("submit: ", text)
+    }
   }
 }
 </script>
@@ -121,6 +133,8 @@ export default {
         left: $distance
         right: $distance
       .comments
+        margin:
+          bottom: 5px
         .date
           font-size: 11px
         .view-info
@@ -136,6 +150,16 @@ export default {
           margin:
             top: 3px
             bottom: 3px
+      .border
+        border-top: $border-line
+        margin:
+          left: -$distance
+          right: -$distance
+      .share-input
+        height: 50px
+        display: flex
+        flex-direction: column
+        justify-content: center
 
 
     

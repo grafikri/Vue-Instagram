@@ -8,20 +8,19 @@
     <!-- <VTimeLine
       :users="[{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'},{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'},{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'},{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'},{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'}]"
     />-->
-    <!-- <VPost
+    <VPost
       v-for="(content, index) in posts"
       :key="index"
       :post="content.post"
       :user="content.user"
-    />-->
-    <VPostCommentInput/>
+    />
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex"
 
-import VPostCommentInput from "@/components/molecules/VPostCommentInput"
+import VPost from "@/components/organisms/VPost"
 
 export default {
   name: "App",
@@ -29,8 +28,11 @@ export default {
   computed: {
     ...mapState(["posts"])
   },
+  methods: {
+
+  },
   components: {
-    VPostCommentInput
+    VPost
   }
 }
 </script>
