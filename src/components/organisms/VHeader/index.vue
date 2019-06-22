@@ -3,22 +3,30 @@
     <VLayout>
       <div class="container">
         <div class="left">
-          <div>
-            <VTextLogo/>
-            <div class="vertical-line"></div>
-            <div class="logo">
+          <VButton to="/">
+            <div>
               <VLogo/>
+              <div class="vertical-line"></div>
+              <div class="logo">
+                <VTextLogo/>
+              </div>
             </div>
-          </div>
+          </VButton>
         </div>
         <div class="middle">
           <VInputSearch/>
         </div>
         <div class="right">
           <div>
-            <VIcon class="compass"/>
-            <VIcon class="fav"/>
-            <VIcon class="user"/>
+            <VButton>
+              <VIcon class="compass"/>
+            </VButton>
+            <VButton>
+              <VIcon class="fav"/>
+            </VButton>
+            <VButton>
+              <VIcon class="user"/>
+            </VButton>
           </div>
         </div>
       </div>
@@ -29,6 +37,7 @@
 
 <script>
 
+import VButton from '@/components/atoms/VButton'
 import VLayout from '@/components/atoms/VLayout'
 import VIcon from '@/components/atoms/VIcon'
 import VLogo from '@/components/atoms/VLogo'
@@ -42,7 +51,8 @@ export default {
     VLogo,
     VTextLogo,
     VInputSearch,
-    VLayout
+    VLayout,
+    VButton
   },
   props: {
     minify: {
