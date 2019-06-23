@@ -57,9 +57,14 @@ export default {
       margin: 0
       &.name
         font-size: 14px
-        font-weight: bold
+        font-weight: 600
+        margin:
+          bottom: 2px
       &.desc
         font-size: 12px
+        line-height: 14px
+        font-weight: inherit
+        color: #999
       
 
 </style>

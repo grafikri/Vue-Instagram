@@ -17,6 +17,9 @@
           <div class="section">
             <VUserBrowse title="Suggestions for you" :users="suggestions_user"/>
           </div>
+          <div class="section">
+            <VMiniFooter/>
+          </div>
         </div>
       </div>
     </VMemberBox>
@@ -29,6 +32,7 @@ import VMemberBox from '@/components/organisms/VMemberBox'
 import VPost from '@/components/organisms/VPost'
 import VUserBrowse from '@/components/organisms/VUserBrowse'
 import VUserLine from '@/components/molecules/VUserLine'
+import VMiniFooter from '@/components/molecules/VMiniFooter'
 
 export default {
   name: "VTimeLine",
@@ -36,7 +40,8 @@ export default {
     VMemberBox,
     VPost,
     VUserBrowse,
-    VUserLine
+    VUserLine,
+    VMiniFooter
   },
   props: {
     suggestions_user: Array,

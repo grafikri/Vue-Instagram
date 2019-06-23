@@ -1,7 +1,7 @@
 <template>
   <div class="v-o-post">
     <div class="header">
-      <VUserLine :photo="user.photo" :name="user.name" :size="36"/>
+      <VUserLine :photo="user.photo" :name="user.name" :size="32"/>
     </div>
     <div class="body">
       <VImage :url="post.photo"/>
