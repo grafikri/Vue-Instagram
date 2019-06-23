@@ -1,32 +1,23 @@
 <template>
   <div id="app">
     <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>-->
-    <VTimeLine
-      :users="[{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'},{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'},{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'},{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'},{name: 'Tony Stark', desc: '10 hours ago', photo: 'https://fakeimg.pl/200x200/?text=Photo&font=lobster'}]"
-      :timeLinePosts="posts"
-    />
+    </div>-->
+    <router-view/>
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex"
 
-import VTimeLine from "@/components/templates/VTimeLine"
-import VPost from "@/components/organisms/VPost"
+import VHome from '@/components/pages/VHome'
 
 export default {
   name: "App",
   created() { },
-  computed: {
-    ...mapState(["posts"])
-  },
   components: {
-    VPost,
-    VTimeLine
+    VHome,
   }
 }
 </script>

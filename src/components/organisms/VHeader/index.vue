@@ -24,7 +24,7 @@
             <VButton>
               <VIcon class="fav"/>
             </VButton>
-            <VButton>
+            <VButton to="auth">
               <VIcon class="user"/>
             </VButton>
           </div>
