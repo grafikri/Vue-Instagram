@@ -1,6 +1,8 @@
 <template>
   <div class="v-a-mini-title">
-    <h2>Hi</h2>
+    <h2>
+      <slot></slot>
+    </h2>
   </div>
 </template>
 

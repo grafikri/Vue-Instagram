@@ -37,7 +37,7 @@ export default {
     VImage
   },
   props: {
-    id: Number, // User id
+    id: [String, Number], // User id
     name: String, // User name,
     desc: String
   }

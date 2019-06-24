@@ -58,8 +58,8 @@ export default {
   },
   props: {
     url: String,
-    likeCount: Number,
-    commentCount: Number
+    likeCount: [String, Number],
+    commentCount: [String, Number]
   }
 }
 </script>
@@ -67,7 +67,6 @@ export default {
 <style lang="sass" scoped>
   .v-m-photo-card
     line-height: 0
-    width: 300px
     position: relative
     &[active] 
       .overlay

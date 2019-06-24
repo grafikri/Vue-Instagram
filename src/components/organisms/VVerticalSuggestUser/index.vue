@@ -26,9 +26,10 @@ export default {
 <style lang="sass" scoped>
   .v-o-vertical-suggest-user
     .container
-      width: 500px
-      background: red
-
+      box-sizing: border-box
+      width: 100%
+      padding:
+        left: 40px
       overflow: scroll
       display: flex
     .box

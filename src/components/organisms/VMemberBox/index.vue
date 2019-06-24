@@ -53,6 +53,11 @@ export default {
     .header-container
       position: fixed
       width: 100%
+    .container
+      box-sizing: border-box
+      padding:
+        left: 15px
+        right: 15px
     .space
       height: 130px
 </style>
