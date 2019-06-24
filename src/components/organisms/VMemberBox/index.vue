@@ -52,7 +52,13 @@ export default {
   .v-o-member-box
     .header-container
       position: fixed
+      z-index: 99
       width: 100%
+    .container
+      box-sizing: border-box
+      padding:
+        left: 15px
+        right: 15px
     .space
       height: 130px
 </style>

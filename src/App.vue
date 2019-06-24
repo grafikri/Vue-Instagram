@@ -11,13 +11,15 @@
 <script>
 import { mapState } from "vuex"
 
+
 import VHome from '@/components/pages/VHome'
+
 
 export default {
   name: "App",
   created() { },
   components: {
-    VHome
+
   }
 }
 </script>

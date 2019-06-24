@@ -46,6 +46,17 @@ span
     background-position: -273px -128px
     height: 11px
     width: 12px
+
+  &.overlay-heart
+    background-image: url($icons-link-second-part)
+    background-position: -321px -267px
+    height: 18px
+    width: 18px
+  &.overlay-comment
+    background-image: url($icons-link-second-part)
+    background-position: -320px -225px
+    height: 20px
+    width: 20px
   
 
 
