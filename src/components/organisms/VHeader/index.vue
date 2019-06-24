@@ -18,7 +18,7 @@
         </div>
         <div class="right">
           <div>
-            <VButton>
+            <VButton to="explore">
               <VIcon class="compass"/>
             </VButton>
             <VButton>

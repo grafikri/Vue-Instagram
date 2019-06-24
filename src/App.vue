@@ -4,33 +4,23 @@
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>-->
-    <!-- <router-view/> -->
-
-    <VExplore :explore="explore" :users="users"/>
+    <router-view/>
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex"
 
-import VExplore from '@/components/templates/VExplore'
+
 import VHome from '@/components/pages/VHome'
-
-
 
 
 export default {
   name: "App",
   created() { },
   components: {
-    VExplore
-  },
-  computed: {
-    ...mapState({
-      "explore": state => state.explore,
-      "users": state => state.explore_new_user
-    })
-  },
+
+  }
 }
 </script>
 

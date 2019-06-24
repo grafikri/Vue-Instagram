@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import VHome from '@/components/pages/VHome'
 import VAuthProfile from '@/components/pages/VAuthProfile'
-import VExplore from '@/components/pages/VExplore'
+import VExplorePage from '@/components/pages/VExplorePage'
 
 
 
@@ -23,12 +23,12 @@ export default new Router({
     {
       path: '/explore',
       name: 'explore',
-      component: VExplore
+      component: VExplorePage
     },
     {
       path: '/profile/:id',
       name: 'profile',
-      component: VExplore
+      component: VAuthProfile
     }
   ]
 })
