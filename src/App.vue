@@ -5,9 +5,9 @@
       <router-link to="/about">About</router-link>
     </div>-->
     <!-- <router-view/> -->
-    <VVerticalSuggestUser
+    <!-- <VVerticalSuggestUser
       :users="[{id: '1', name: 'Hulk2', desc: 'Hello'}, {id: '1', name: 'Hulk', desc: 'Hello'}, {id: '1', name: 'Hulk', desc: 'Hello'}]"
-    />
+    />-->
   </div>
 </template>
 
@@ -16,8 +16,10 @@ import { mapState } from "vuex"
 
 
 import VVerticalSuggestUser from '@/components/organisms/VVerticalSuggestUser'
+import VMiniTitle from '@/components/atoms/VMiniTitle'
 
 import VHome from '@/components/pages/VHome'
+
 
 
 
@@ -26,7 +28,8 @@ export default {
   created() { },
   components: {
     VHome,
-    VVerticalSuggestUser
+    VVerticalSuggestUser,
+    VMiniTitle
   }
 }
 </script>
