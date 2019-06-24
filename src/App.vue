@@ -5,18 +5,19 @@
       <router-link to="/about">About</router-link>
     </div>-->
     <!-- <router-view/> -->
-    <VUserCard :id="32" name="Hulk" desc="Seni takip ediyor"/>
+    <VVerticalSuggestUser
+      :users="[{id: '1', name: 'Hulk2', desc: 'Hello'}, {id: '1', name: 'Hulk', desc: 'Hello'}, {id: '1', name: 'Hulk', desc: 'Hello'}]"
+    />
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex"
 
+
+import VVerticalSuggestUser from '@/components/organisms/VVerticalSuggestUser'
+
 import VHome from '@/components/pages/VHome'
-import VUserName from '@/components/atoms/VUserName'
-import VUserDesc from '@/components/atoms/VUserDesc'
-import VButton from '@/components/atoms/VButton'
-import VUserCard from '@/components/organisms/VUserCard'
 
 
 
@@ -25,7 +26,7 @@ export default {
   created() { },
   components: {
     VHome,
-    VUserCard
+    VVerticalSuggestUser
   }
 }
 </script>
