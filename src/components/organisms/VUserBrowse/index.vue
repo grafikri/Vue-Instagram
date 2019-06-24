@@ -55,12 +55,14 @@ export default {
         p
           flex-grow: 1
           font-size: 14px
-          font-weight: bold
+          font-weight: 500
           margin: 0
           &:first-child
             color: #999
           &:last-child
             text-align: right
+            font-size: 12px
+            font-weight: 600
     .body
       .line
         margin:

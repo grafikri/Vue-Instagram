@@ -12,7 +12,7 @@
             <VUserLine :photo="auth.photo" :name="auth.name" :desc="auth.full_name" :size="52"/>
           </div>
           <div class="section">
-            <VUserBrowse :scroll="100" title="Stories" :users="stories_user"/>
+            <VUserBrowse :scroll="180" title="Stories" :users="stories_user"/>
           </div>
           <div class="section">
             <VUserBrowse title="Suggestions for you" :users="suggestions_user"/>
