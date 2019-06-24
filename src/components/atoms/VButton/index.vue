@@ -43,7 +43,8 @@ export default {
 
 <style lang="sass" scoped>
   .v-a-button
-    display: inline-block
+    // display: inline-block
+    display: contents
     padding: 0
     margin: 0
     color: $dark-text-color

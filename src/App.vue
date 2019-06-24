@@ -8,6 +8,11 @@
     <!-- <VVerticalSuggestUser
       :users="[{id: '1', name: 'Hulk2', desc: 'Hello'}, {id: '1', name: 'Hulk', desc: 'Hello'}, {id: '1', name: 'Hulk', desc: 'Hello'}]"
     />-->
+    <VPhotoCard
+      url="https://fakeimg.pl/200x200/?text=Photo&font=lobster"
+      :like-count="32"
+      :comment-count="64"
+    />
   </div>
 </template>
 
@@ -17,6 +22,13 @@ import { mapState } from "vuex"
 
 import VVerticalSuggestUser from '@/components/organisms/VVerticalSuggestUser'
 import VMiniTitle from '@/components/atoms/VMiniTitle'
+import VButton from '@/components/atoms/VButton'
+import VIconText from '@/components/molecules/VIconText'
+
+import VIcon from '@/components/atoms/VIcon'
+import VPhotoCard from '@/components/molecules/VPhotoCard'
+
+
 
 import VHome from '@/components/pages/VHome'
 
@@ -27,7 +39,9 @@ export default {
   name: "App",
   created() { },
   components: {
-    VHome,
+    VIconText,
+    VIcon,
+    VPhotoCard,
     VVerticalSuggestUser,
     VMiniTitle
   }
