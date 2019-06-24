@@ -6,6 +6,8 @@
     :href="href"
     :to="to"
     :is="buttonType"
+    :primary="primary"
+    :filled="filled"
   >
     <slot></slot>
   </component>
@@ -18,7 +20,10 @@ export default {
     href: String,
     to: [Object, String],
     click: Function,
-    passive: Boolean
+    passive: Boolean,
+    primary: Boolean,
+    filled: Boolean
+
   },
   methods: {
     handleClick(event) {
@@ -38,10 +43,11 @@ export default {
 
 <style lang="sass" scoped>
   .v-a-button
+    display: inline-block
     padding: 0
     margin: 0
+    color: $dark-text-color
     text-decoration: none
-    color: $primary-button-color
     background: none
     border: none
     font-size: 14px
@@ -51,5 +57,17 @@ export default {
       outline: none
     &[disabled]
       color: gray
+    &[primary]
+      color: $primary-button-color
+    &[primary][filled]
+      background: $primary-button-color
+    &[filled]
+      color: white
+      padding:
+        top: 5px
+        bottom: 5px
+        left: 9px
+        right: 9px
+      @extend %border-style
 </style>
 

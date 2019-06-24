@@ -4,7 +4,8 @@
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>-->
-    <router-view/>
+    <!-- <router-view/> -->
+    <VUserCard :id="32" name="Hulk" desc="Seni takip ediyor"/>
   </div>
 </template>
 
@@ -12,12 +13,19 @@
 import { mapState } from "vuex"
 
 import VHome from '@/components/pages/VHome'
+import VUserName from '@/components/atoms/VUserName'
+import VUserDesc from '@/components/atoms/VUserDesc'
+import VButton from '@/components/atoms/VButton'
+import VUserCard from '@/components/organisms/VUserCard'
+
+
 
 export default {
   name: "App",
   created() { },
   components: {
-    VHome
+    VHome,
+    VUserCard
   }
 }
 </script>
