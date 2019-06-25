@@ -1,5 +1,7 @@
 <template>
-  <p :style="styleObject" class="v-a-text">engin şentürk</p>
+  <p :style="styleObject" class="v-a-text">
+    <slot></slot>
+  </p>
 </template>
 
 <script>
@@ -21,7 +23,12 @@ export default {
     capitalize: {
       type: Boolean,
       default: false
+    },
+    color: {
+      type: String,
+      default: "black"
     }
+
   },
   created() {
     console.log("this: ", this.styleObject)
@@ -32,6 +39,7 @@ export default {
       let object = {
         fontSize: this.size,
         fontWeight: this.bold,
+        color: this.color
       }
 
       if (this.uppercase) {
