@@ -5,7 +5,9 @@
       <router-link to="/about">About</router-link>
     </div>-->
     <!-- <router-view/> -->
-    <VUserLargeViewer/>
+
+    <!-- <VTabsLarge/> -->
+    <VText :color="$primaryColor">Merhab</VText>
   </div>
 </template>
 
@@ -14,13 +16,17 @@ import { mapState } from "vuex"
 
 
 import VUserLargeViewer from '@/components/organisms/VUserLargeViewer'
+import VTabsLarge from '@/components/molecules/VTabsLarge'
 
+import VText from '@/components/atoms/VText'
 
 export default {
   name: "App",
   created() { },
   components: {
-    VUserLargeViewer
+    VUserLargeViewer,
+    VTabsLarge,
+    VText
   }
 }
 </script>
