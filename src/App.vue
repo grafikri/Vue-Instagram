@@ -5,10 +5,7 @@
       <router-link to="/about">About</router-link>
     </div>-->
     <!-- <router-view/> -->
-    <VUserLargeTitle name="grafikri">
-      <VButton clear filled to="/profiel">Edit Profile</VButton>
-      <VButton clear filled to="/profiel">Edit Profile</VButton>
-    </VUserLargeTitle>
+    <VUserLargeViewer/>
   </div>
 </template>
 
@@ -16,17 +13,14 @@
 import { mapState } from "vuex"
 
 
-import VHome from '@/components/pages/VHome'
-import VButton from '@/components/atoms/VButton'
-import VUserLargeTitle from '@/components/molecules/VUserLargeTitle'
+import VUserLargeViewer from '@/components/organisms/VUserLargeViewer'
 
 
 export default {
   name: "App",
   created() { },
   components: {
-    VUserLargeTitle,
-    VButton
+    VUserLargeViewer
   }
 }
 </script>
