@@ -4,7 +4,9 @@
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>-->
-    <router-view/>
+    <!-- <router-view/> -->
+    <VUserHorizontalEntity/>
+    <VUserVerticalEntity/>
   </div>
 </template>
 
@@ -13,13 +15,17 @@ import { mapState } from "vuex"
 
 
 import VHome from '@/components/pages/VHome'
+import VUserHorizontalEntity from '@/components/molecules/VUserHorizontalEntity'
+import VUserVerticalEntity from '@/components/molecules/VUserVerticalEntity'
+
 
 
 export default {
   name: "App",
   created() { },
   components: {
-
+    VUserHorizontalEntity,
+    VUserVerticalEntity
   }
 }
 </script>
