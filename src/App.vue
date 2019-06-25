@@ -5,8 +5,10 @@
       <router-link to="/about">About</router-link>
     </div>-->
     <!-- <router-view/> -->
-    <VUserHorizontalEntity/>
-    <VUserVerticalEntity/>
+    <VUserLargeTitle name="grafikri">
+      <VButton clear filled to="/profiel">Edit Profile</VButton>
+      <VButton clear filled to="/profiel">Edit Profile</VButton>
+    </VUserLargeTitle>
   </div>
 </template>
 
@@ -15,17 +17,16 @@ import { mapState } from "vuex"
 
 
 import VHome from '@/components/pages/VHome'
-import VUserHorizontalEntity from '@/components/molecules/VUserHorizontalEntity'
-import VUserVerticalEntity from '@/components/molecules/VUserVerticalEntity'
-
+import VButton from '@/components/atoms/VButton'
+import VUserLargeTitle from '@/components/molecules/VUserLargeTitle'
 
 
 export default {
   name: "App",
   created() { },
   components: {
-    VUserHorizontalEntity,
-    VUserVerticalEntity
+    VUserLargeTitle,
+    VButton
   }
 }
 </script>

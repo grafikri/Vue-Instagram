@@ -7,6 +7,7 @@
     :to="to"
     :is="buttonType"
     :primary="primary"
+    :clear="clear"
     :filled="filled"
   >
     <slot></slot>
@@ -22,7 +23,8 @@ export default {
     click: Function,
     passive: Boolean,
     primary: Boolean,
-    filled: Boolean
+    filled: Boolean,
+    clear: Boolean
 
   },
   methods: {
@@ -57,6 +59,11 @@ export default {
       outline: none
     &[disabled]
       color: gray
+    &[clear]
+      color: $dark-text-color !important
+    &[clear][filled]
+      background: none
+      @extend %box-style
     &[primary]
       color: $primary-button-color
     &[primary][filled]
