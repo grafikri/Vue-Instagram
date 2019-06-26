@@ -59,8 +59,8 @@ export default {
       display: flex
       align-items: center
       padding:
-        top: 15px
-        bottom: 15px
+        top: 18px
+        bottom: 18px
       color: $secondary-light-text-color
       font-size: 14px
       font-weight: 600
