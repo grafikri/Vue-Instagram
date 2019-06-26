@@ -2,7 +2,7 @@
   <div class="v-m-user-large-viewer">
     <div class="left">
       <VButton to="profile">
-        <VImage :width="150" rounded url="http://fakeimg.pl/200x200/?text=Photo&font=lobster"/>
+        <VImage width="150px" rounded url="http://fakeimg.pl/200x200/?text=Photo&font=lobster"/>
       </VButton>
     </div>
     <div class="right">
