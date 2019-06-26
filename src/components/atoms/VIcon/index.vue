@@ -97,6 +97,11 @@ span
     background-position: -246px -337px
     height: 12px
     width: 12px
+  &.igtv
+    background-image: url($icons-link-third-part)
+    background-position: -50px -424px
+    height: 62px
+    width: 62px
 
 
   
