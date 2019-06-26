@@ -7,21 +7,42 @@ export default {
   name: "VImage",
   props: {
     url: String,
-    width: Number,
-    rounded: Boolean
+    width: [String],
+    height: [String],
+    rounded: Boolean,
+    aspectRatio: Boolean
   },
   computed: {
     styleObject() {
-      let width = this.width ? this.width + "px" : "100%"
+
       let borderRadius = this.rounded ? 999999 + "px" : 'inherit'
 
       return {
         borderRadius: borderRadius,
-        width: width,
-        height: width
+        ...this.calculateWidthHeight()
       }
     }
-  }
+  },
+  methods: {
+    calculateWidthHeight() {
+
+      let width = this.width ? this.width : "initial"
+      let height = this.height ? this.height : "initial"
+
+      if (this.aspectRatio) {
+        if (this.width) {
+          height = "initial"
+        } else if (this.height) {
+          width = "initial"
+        }
+      }
+
+      return {
+        width: width, height: height
+      }
+
+    }
+  },
 }
 </script>
 
