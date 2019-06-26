@@ -9,10 +9,10 @@
     <div class="right">
       <div class="desc">
         <div>
-          <VText bold="bold" size="18px">Start capturing and sharing your moments.</VText>
+          <VText bold="bold" size="18px">{{ title }}</VText>
         </div>
         <div>
-          <VText size="16px">Get the app to share your first photo or video.</VText>
+          <VText size="16px">{{ desc }}</VText>
         </div>
       </div>
       <div class="buttons">
@@ -49,6 +49,16 @@ export default {
     VImage,
     VButton,
     VText,
+  },
+  props: {
+    title: {
+      type: String,
+      default: ""
+    },
+    desc: {
+      type: String,
+      default: ""
+    },
   },
 
 }
