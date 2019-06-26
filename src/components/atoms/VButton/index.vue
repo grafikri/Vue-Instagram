@@ -9,6 +9,7 @@
     :primary="primary"
     :clear="clear"
     :filled="filled"
+    :block="block"
   >
     <slot></slot>
   </component>
@@ -24,7 +25,8 @@ export default {
     passive: Boolean,
     primary: Boolean,
     filled: Boolean,
-    clear: Boolean
+    clear: Boolean,
+    block: Boolean
 
   },
   methods: {
@@ -55,6 +57,8 @@ export default {
     font-size: 14px
     cursor: pointer
     font-weight: 600
+    &[block]
+      width: 100%
     &:focus
       outline: none
     &[disabled]
