@@ -12,6 +12,7 @@
 <script>
 import { mapState } from "vuex"
 
+import style from './assets/style/_colors.sass';
 import VProfile from '@/components/templates/VProfile';
 
 export default {
@@ -19,6 +20,9 @@ export default {
   created() { },
   components: {
     VProfile
+  },
+  created() {
+    console.log("this: ", this);
   },
   methods: {
     handleClick() {
