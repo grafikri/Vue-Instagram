@@ -62,7 +62,7 @@ export default {
         top: 18px
         bottom: 18px
       color: $secondary-light-text-color
-      font-size: 14px
+      font-size: 12px
       font-weight: 600
       letter-spacing: 1px
       @extend %hideBorder

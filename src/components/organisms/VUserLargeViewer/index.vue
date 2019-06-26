@@ -42,13 +42,15 @@ export default {
   .v-m-user-large-viewer
     display: flex
     padding:
-      top: 45px
-      bottom: 45px
+      top: 5px
+      bottom: 40px
     .left
-      flex-basis: 35%
+      flex-basis: 30%
       text-align: center
     .right
       flex-grow: 1
+      margin:
+        left: 30px
       .title, .entity
         margin:
           bottom: 25px

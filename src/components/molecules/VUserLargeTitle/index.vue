@@ -27,7 +27,7 @@ export default {
         margin: 0
         color: $dark-text-color
         font-weight: 300
-        font-size: 28
+        font-size: 28px
     .elems
       *
         margin:

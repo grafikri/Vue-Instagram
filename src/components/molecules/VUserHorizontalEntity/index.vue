@@ -52,7 +52,8 @@ export default {
     display: flex
     div
       display: flex
-      flex-grow: 1
+      margin:
+        right: 35px
       p
         margin: 0
         display: inline-block

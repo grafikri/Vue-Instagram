@@ -5,29 +5,26 @@
       <router-link to="/about">About</router-link>
     </div>-->
     <!-- <router-view/> -->
-
-    <!-- <VTabsLarge/> -->
-    <VText>Hello</VText>
+    <VProfile/>
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex"
 
-
-import VUserLargeViewer from '@/components/organisms/VUserLargeViewer'
-import VTabsLarge from '@/components/molecules/VTabsLarge'
-
-import VText from '@/components/atoms/VText'
+import VProfile from '@/components/templates/VProfile';
 
 export default {
   name: "App",
   created() { },
   components: {
-    VUserLargeViewer,
-    VTabsLarge,
-    VText
-  }
+    VProfile
+  },
+  methods: {
+    handleClick() {
+      console.log("click")
+    }
+  },
 }
 </script>
 

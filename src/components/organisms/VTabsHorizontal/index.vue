@@ -28,8 +28,8 @@ export default {
       justify-content: center
       > *
         margin:
-          left: 5px
-          right: 5px
+          left: 25px
+          right: 25px
         
     
 

@@ -57,6 +57,51 @@ span
     background-position: -320px -225px
     height: 20px
     width: 20px
+  &.grid-dark
+    background-image: url($icons-link-second-part)
+    background-position: -260px -337px
+    height: 12px
+    width: 12px
+  &.grid-light
+    background-image: url($icons-link-second-part)
+    background-position: -274px -337px
+    height: 12px
+    width: 12px
+  &.igtv-dark
+    background-image: url($icons-link-second-part)
+    background-position: -316px -337px
+    height: 12px
+    width: 12px
+  &.igtv-light
+    background-image: url($icons-link-second-part)
+    background-position: -330px -337px
+    height: 12px
+    width: 12px
+  &.saved-dark
+    background-image: url($icons-link-second-part)
+    background-position: -393px -258px
+    height: 12px
+    width: 10px
+  &.saved-light
+    background-image: url($icons-link-second-part)
+    background-position: -42px -361px
+    height: 12px
+    width: 10px
+  &.tagged-dark
+    background-image: url($icons-link-second-part)
+    background-position: -288px -337px
+    height: 12px
+    width: 12px
+  &.tagged-light
+    background-image: url($icons-link-second-part)
+    background-position: -246px -337px
+    height: 12px
+    width: 12px
+
+
+  
+    
+    
   
 
 
