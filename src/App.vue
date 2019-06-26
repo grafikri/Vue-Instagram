@@ -7,7 +7,7 @@
     <!-- <router-view/> -->
 
     <!-- <VTabsLarge/> -->
-    <VText :color="$primaryColor">Merhab</VText>
+    <VText>Hello</VText>
   </div>
 </template>
 
