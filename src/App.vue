@@ -13,16 +13,45 @@
 import { mapState } from "vuex"
 
 import style from './assets/style/_colors.sass';
-import VProfile from '@/components/templates/VProfile';
+
+import VProfile from '@/components/templates/VProfile'
+
 
 export default {
   name: "App",
-  created() { },
   components: {
     VProfile
   },
   created() {
-    console.log("this: ", this);
+
+  },
+  data() {
+    return {
+      user: {
+        info: {
+          name: "grafikri",
+          desc: "Long description",
+          photo: "https://fakeimg.pl/200x200/?text=Photo&font=lobster",
+          amouts: {
+            post: "32k",
+            followers: "10k",
+            following: "5k"
+          }
+        },
+        posts: [
+
+        ],
+        igtv: [
+
+        ],
+        saved: [
+
+        ],
+        tagged: [
+
+        ],
+      }
+    }
   },
   methods: {
     handleClick() {
