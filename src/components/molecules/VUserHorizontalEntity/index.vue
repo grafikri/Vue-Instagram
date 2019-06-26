@@ -1,8 +1,8 @@
 <template>
   <div class="v-m-user-horizontal-entity">
     <div>
-      <p class="count">{{ post.count }}</p>
-      <p class="text">{{ post.text }}</p>
+      <p class="count">{{ posts.count }}</p>
+      <p class="text">{{ posts.text }}</p>
     </div>
     <div>
       <VButton>
@@ -12,8 +12,8 @@
     </div>
     <div>
       <VButton>
-        <p class="count">{{ following.count }}</p>
-        <p class="text">{{ following.text }}</p>
+        <p class="count">{{ followings.count }}</p>
+        <p class="text">{{ followings.text }}</p>
       </VButton>
     </div>
   </div>
@@ -28,22 +28,11 @@ export default {
   components: {
     VButton
   },
-  data() {
-    return {
-      post: {
-        count: "35k",
-        text: "posts"
-      },
-      followers: {
-        count: "25k",
-        text: "followers"
-      },
-      following: {
-        count: "25k",
-        text: "following"
-      }
-    }
-  }
+  props: {
+    posts: Object,
+    followers: Object,
+    followings: Object,
+  },
 }
 </script>
 

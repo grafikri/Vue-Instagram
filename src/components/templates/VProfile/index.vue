@@ -1,7 +1,14 @@
 <template>
   <div>
     <VMemberBox>
-      <VUserLargeViewer/>
+      <VUserLargeViewer
+        :photo="user.avatar"
+        :name="user.name"
+        :desc="user.desc"
+        :posts="{text: 'posts', count: user.quantity.posts}"
+        :followers="{text: 'followers', count: user.quantity.followers}"
+        :followings="{text: 'followings', count: user.quantity.followings}"
+      />
 
       <VTabsHorizontal>
         <VTabText @click="handleClickPost" :active="postTab" icon="grid" text="GÖNDERİLER"/>
@@ -36,6 +43,9 @@ export default {
     return {
       currentTab: "igtv"
     }
+  },
+  props: {
+    user: Object
   },
   components: {
     VMemberBox,

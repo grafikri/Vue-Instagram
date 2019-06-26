@@ -2,20 +2,20 @@
   <div class="v-m-user-large-viewer">
     <div class="left">
       <VButton to="profile">
-        <VImage width="150px" rounded url="http://fakeimg.pl/200x200/?text=Photo&font=lobster"/>
+        <VImage width="150px" rounded :url="photo"/>
       </VButton>
     </div>
     <div class="right">
       <div class="title">
-        <VUserLargeTitle name="grafikri">
+        <VUserLargeTitle :name="name">
           <VButton clear filled to="/profiel">Edit Profile</VButton>
           <VButton clear filled to="/profiel">Edit Profile</VButton>
         </VUserLargeTitle>
       </div>
       <div class="entity">
-        <VUserHorizontalEntity/>
+        <VUserHorizontalEntity :posts="posts" :followers="followers" :followings="followings"/>
       </div>
-      <div class="desc">desc</div>
+      <div class="desc">{{ desc }}</div>
     </div>
   </div>
 </template>
@@ -34,6 +34,14 @@ export default {
     VImage,
     VUserLargeTitle,
     VUserHorizontalEntity
+  },
+  props: {
+    name: String,
+    photo: String,
+    desc: String,
+    posts: Object,
+    followers: Object,
+    followings: Object
   },
 }
 </script>
