@@ -23,6 +23,7 @@
 <script>
 
 import VEmptyPost from '@/components/organisms/VEmptyPost'
+import VEmptyIGTV from '@/components/organisms/VEmptyIGTV'
 import VMemberBox from '@/components/organisms/VMemberBox'
 import VUserLargeViewer from '@/components/organisms/VUserLargeViewer'
 import VTabsHorizontal from '@/components/organisms/VTabsHorizontal'
@@ -33,7 +34,7 @@ export default {
   name: "VProfile",
   data() {
     return {
-      currentTab: "post"
+      currentTab: "igtv"
     }
   },
   components: {
@@ -41,7 +42,8 @@ export default {
     VUserLargeViewer,
     VTabsHorizontal,
     VTabText,
-    VEmptyPost
+    VEmptyPost,
+    VEmptyIGTV
   },
   computed: {
     postTab() {
@@ -61,11 +63,11 @@ export default {
         case "post":
           return "VEmptyPost"
         case "igtv":
-          return "VTabText"
+          return "VEmptyIGTV"
         case "saved":
           return "VTabText"
         case "tagged":
-          return "VTabText"
+          return "VEmptyPost"
       }
     },
     currentContentProps() {
@@ -73,11 +75,15 @@ export default {
         case "post":
           return { title: "Start capturing and sharing your moments.", desc: "Get the app to share your first photo or video." }
         case "igtv":
-          return {}
+          return {
+            title: "Upload a Video",
+            desc: "Videos must be between 15 seconds and 10 minutes long.",
+            btnText: "Upload"
+          }
         case "saved":
           return {}
         case "tagged":
-          return {}
+          return { title: "Start capturing and sharing your moments.", desc: "Get the app to share your first photo or video." }
       }
     },
 
