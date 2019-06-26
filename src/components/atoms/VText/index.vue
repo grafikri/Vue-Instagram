@@ -31,7 +31,7 @@ export default {
 
   },
   created() {
-    console.log("this: ", this.styleObject)
+
   },
   computed: {
     styleObject() {
