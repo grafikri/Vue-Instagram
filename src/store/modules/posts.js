@@ -1,3 +1,6 @@
+/**
+ * That data is used to show posts that belong someone
+ */
 const state = [
   {
     id: 1,
