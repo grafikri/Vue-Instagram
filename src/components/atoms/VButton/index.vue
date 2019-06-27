@@ -7,7 +7,9 @@
     :to="to"
     :is="buttonType"
     :primary="primary"
+    :clear="clear"
     :filled="filled"
+    :block="block"
   >
     <slot></slot>
   </component>
@@ -22,7 +24,9 @@ export default {
     click: Function,
     passive: Boolean,
     primary: Boolean,
-    filled: Boolean
+    filled: Boolean,
+    clear: Boolean,
+    block: Boolean
 
   },
   methods: {
@@ -53,10 +57,17 @@ export default {
     font-size: 14px
     cursor: pointer
     font-weight: 600
+    &[block]
+      width: 100%
     &:focus
       outline: none
     &[disabled]
       color: gray
+    &[clear]
+      color: $dark-text-color !important
+    &[clear][filled]
+      background: none
+      @extend %box-style
     &[primary]
       color: $primary-button-color
     &[primary][filled]

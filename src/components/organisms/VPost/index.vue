@@ -4,7 +4,7 @@
       <VUserLine :photo="user.photo" :name="user.name" :size="32"/>
     </div>
     <div class="body">
-      <VImage :url="post.photo"/>
+      <VImage width="100%" :url="post.photo"/>
 
       <div class="tools">
         <div class="left">

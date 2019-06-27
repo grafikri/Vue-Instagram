@@ -3,7 +3,7 @@
     <VTimeLine
       :suggestions_user="suggestions_user"
       :stories_user="stories_user"
-      :timeLinePosts="posts"
+      :timeLinePosts="timeline"
       :auth="auth"
     />
   </div>
@@ -20,7 +20,7 @@ export default {
     VTimeLine
   },
   computed: {
-    ...mapState(["posts", "suggestions_user", "stories_user", "auth"])
+    ...mapState(["timeline", "suggestions_user", "stories_user", "auth"])
   },
 }
 </script>

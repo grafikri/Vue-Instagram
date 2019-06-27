@@ -5,8 +5,8 @@
     @mouseover="handleMouseOver"
     @mouseout="handleMouseOut"
   >
-    <VButton>
-      <VImage :url="url"/>
+    <VLink>
+      <VImage width="100%" :url="url"/>
       <div class="overlay"></div>
       <div class="box">
         <div class="box-item">
@@ -20,7 +20,7 @@
           </div>
         </div>
       </div>
-    </VButton>
+    </VLink>
   </div>
 </template>
 
@@ -28,7 +28,7 @@
 
 <script>
 
-
+import VLink from '@/components/atoms/VLink'
 import VImage from '@/components/atoms/VImage'
 import VButton from '@/components/atoms/VButton'
 import VIcon from '@/components/atoms/VIcon'
@@ -54,7 +54,8 @@ export default {
     VImage,
     VButton,
     VIcon,
-    VIconText
+    VIconText,
+    VLink
   },
   props: {
     url: String,

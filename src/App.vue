@@ -9,18 +9,24 @@
 </template>
 
 <script>
-import { mapState } from "vuex"
+import { mapState, mapActions } from "vuex"
 
+import style from './assets/style/_colors.sass'
 
-import VHome from '@/components/pages/VHome'
 
 
 export default {
   name: "App",
-  created() { },
   components: {
 
-  }
+  },
+  created() {
+    this.fetch()
+  },
+  methods: {
+    ...mapActions({ fetch: 'timeline/fetchPopularPeople' })
+  },
+
 }
 </script>
 

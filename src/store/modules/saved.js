@@ -1,5 +1,5 @@
 /**
- * That data is used to show posts that belong someone
+ * That data is used to show saved posts that belong auth user
  */
 const state = [
   {
@@ -32,48 +32,6 @@ const state = [
   },
   {
     id: 3,
-    photo: {
-      thumb: "https://fakeimg.pl/500x500/?text=Photo&font=lobster",
-      large: "https://fakeimg.pl/500x500/?text=Photo&font=lobster",
-    },
-    amount: {
-      comment: "22k",
-      like: "3k"
-    },
-    comments: [
-
-    ]
-  },
-  {
-    id: 4,
-    photo: {
-      thumb: "https://fakeimg.pl/500x500/?text=Photo&font=lobster",
-      large: "https://fakeimg.pl/500x500/?text=Photo&font=lobster",
-    },
-    amount: {
-      comment: "22k",
-      like: "3k"
-    },
-    comments: [
-
-    ]
-  },
-  {
-    id: 5,
-    photo: {
-      thumb: "https://fakeimg.pl/500x500/?text=Photo&font=lobster",
-      large: "https://fakeimg.pl/500x500/?text=Photo&font=lobster",
-    },
-    amount: {
-      comment: "22k",
-      like: "3k"
-    },
-    comments: [
-
-    ]
-  },
-  {
-    id: 6,
     photo: {
       thumb: "https://fakeimg.pl/500x500/?text=Photo&font=lobster",
       large: "https://fakeimg.pl/500x500/?text=Photo&font=lobster",
