@@ -29,6 +29,7 @@
 
 <script>
 
+import VShowCase from '@/components/organisms/VShowCase'
 import VEmptyPost from '@/components/organisms/VEmptyPost'
 import VEmptyIGTV from '@/components/organisms/VEmptyIGTV'
 import VMemberBox from '@/components/organisms/VMemberBox'
@@ -41,11 +42,17 @@ export default {
   name: "VProfile",
   data() {
     return {
-      currentTab: "igtv"
+      currentTab: "post"
     }
   },
   props: {
-    user: Object
+    user: Object,
+    posts: {
+      type: Array,
+      default() {
+        return []
+      }
+    }
   },
   components: {
     VMemberBox,
@@ -53,7 +60,8 @@ export default {
     VTabsHorizontal,
     VTabText,
     VEmptyPost,
-    VEmptyIGTV
+    VEmptyIGTV,
+    VShowCase
   },
   computed: {
     postTab() {
@@ -71,7 +79,7 @@ export default {
     currentContent() {
       switch (this.currentTab) {
         case "post":
-          return "VEmptyPost"
+          return this.posts ? "VShowCase" : "VEmptyPost"
         case "igtv":
           return "VEmptyIGTV"
         case "saved":
@@ -83,7 +91,12 @@ export default {
     currentContentProps() {
       switch (this.currentTab) {
         case "post":
-          return { title: "Start capturing and sharing your moments.", desc: "Get the app to share your first photo or video." }
+          if (this.posts) {
+            return { items: this.posts }
+          } else {
+            return { title: "Start capturing and sharing your moments.", desc: "Get the app to share your first photo or video." }
+          }
+
         case "igtv":
           return {
             title: "Upload a Video",
