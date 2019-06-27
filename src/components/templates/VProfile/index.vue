@@ -52,7 +52,13 @@ export default {
       default() {
         return []
       }
-    }
+    },
+    saved: {
+      type: Array,
+      default() {
+        return []
+      }
+    },
   },
   components: {
     VMemberBox,
@@ -83,7 +89,7 @@ export default {
         case "igtv":
           return "VEmptyIGTV"
         case "saved":
-          return "VTabText"
+          return this.saved ? "VShowCase" : "VEmptyPost"
         case "tagged":
           return "VEmptyPost"
       }
@@ -104,7 +110,11 @@ export default {
             btnText: "Upload"
           }
         case "saved":
-          return {}
+          if (this.saved) {
+            return { items: this.saved }
+          } else {
+            return { title: "Start capturing and sharing your moments.", desc: "Get the app to share your first photo or video." }
+          }
         case "tagged":
           return { title: "Start capturing and sharing your moments.", desc: "Get the app to share your first photo or video." }
       }
