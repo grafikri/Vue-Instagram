@@ -5,7 +5,7 @@
       <router-link to="/about">About</router-link>
     </div>-->
     <!-- <router-view/> -->
-    <VProfile :user="user" :posts="posts"/>
+    <VProfile :user="user" :posts="posts" :saved="saved"/>
   </div>
 </template>
 
@@ -37,7 +37,14 @@ export default {
         likeCount: post.amount.like,
         commentCount: post.amount.comment
       }
-    })
+    }),
+    'saved': state => state.saved.map((post) => {
+      return {
+        photo: post.photo.thumb,
+        likeCount: post.amount.like,
+        commentCount: post.amount.comment
+      }
+    }),
   }),
 }
 </script>
