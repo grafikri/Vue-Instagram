@@ -9,9 +9,10 @@
 </template>
 
 <script>
-import { mapState } from "vuex"
+import { mapState, mapActions } from "vuex"
 
 import style from './assets/style/_colors.sass'
+
 
 
 export default {
@@ -20,12 +21,10 @@ export default {
 
   },
   created() {
-
+    this.fetch()
   },
   methods: {
-    handleClick() {
-
-    }
+    ...mapActions({ fetch: 'timeline/fetchPopularPeople' })
   },
 
 }
