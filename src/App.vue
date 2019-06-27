@@ -4,12 +4,7 @@
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>-->
-    <!-- <router-view/> -->
-    <!-- <VProfile :user="user" :posts="posts" :saved="saved"/> -->
-
-    <VFooter
-      :links="[{ title: 'About Us', link: '/about'}, { title: 'Support', link: '/support'}]"
-    />
+    <router-view/>
   </div>
 </template>
 
@@ -17,15 +12,12 @@
 import { mapState } from "vuex"
 
 import style from './assets/style/_colors.sass'
-import VProfile from '@/components/templates/VProfile'
-import VFooter from '@/components/organisms/VFooter'
 
 
 export default {
   name: "App",
   components: {
-    VProfile,
-    VFooter
+
   },
   created() {
 
@@ -35,23 +27,7 @@ export default {
 
     }
   },
-  computed: mapState({
-    user: 'user',
-    'posts': state => state.posts.map((post) => {
-      return {
-        photo: post.photo.thumb,
-        likeCount: post.amount.like,
-        commentCount: post.amount.comment
-      }
-    }),
-    'saved': state => state.saved.map((post) => {
-      return {
-        photo: post.photo.thumb,
-        likeCount: post.amount.like,
-        commentCount: post.amount.comment
-      }
-    }),
-  }),
+
 }
 </script>
 

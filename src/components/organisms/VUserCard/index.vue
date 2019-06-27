@@ -2,7 +2,7 @@
   <div class="v-m-user-card">
     <div class="image">
       <VButton :to="{name: 'profile' ,params: {id: id}}">
-        <VImage :width="56" rounded url="https://fakeimg.pl/200x200/?text=Photo&font=lobster"/>
+        <VImage width="56px" rounded url="https://fakeimg.pl/200x200/?text=Photo&font=lobster"/>
       </VButton>
     </div>
     <div class="name">

@@ -8,6 +8,12 @@
       <div class="container">
         <slot></slot>
       </div>
+
+      <div class="footer">
+        <VFooter
+          :links="[{ title: 'About Us', link: '/about'}, { title: 'Support', link: '/support'},{ title: 'Support', link: '/support'},{ title: 'Support', link: '/support'},{ title: 'Support', link: '/support'},{ title: 'Support', link: '/support'},{ title: 'Support', link: '/support'},{ title: 'Support', link: '/support'}]"
+        />
+      </div>
     </VLayout>
   </div>
 </template>
@@ -16,12 +22,14 @@
 
 import VHeader from '@/components/organisms/VHeader'
 import VLayout from '@/components/atoms/VLayout'
+import VFooter from '@/components/organisms/VFooter'
 
 export default {
   name: "VMemberBox",
   components: {
     VHeader,
-    VLayout
+    VLayout,
+    VFooter
   },
   data() {
     return {
@@ -54,11 +62,15 @@ export default {
       position: fixed
       z-index: 99
       width: 100%
-    .container
+    .container, .footer
       box-sizing: border-box
       padding:
         left: 15px
         right: 15px
+    .footer
+      margin:
+        top: 35px
+        bottom: 50px
     .space
       height: 130px
 </style>

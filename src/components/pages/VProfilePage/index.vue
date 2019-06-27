@@ -1,0 +1,41 @@
+<template>
+  <div class="v-p-profile-page">
+    <VProfile :user="user" :posts="posts" :saved="saved"/>
+  </div>
+</template>
+
+<script>
+
+import { mapState } from "vuex"
+import VProfile from '@/components/templates/VProfile'
+
+export default {
+  name: "VProfilePage",
+  components: {
+    VProfile,
+  },
+  computed: mapState({
+    user: 'user',
+    'posts': state => state.posts.map((post) => {
+      return {
+        photo: post.photo.thumb,
+        likeCount: post.amount.like,
+        commentCount: post.amount.comment
+      }
+    }),
+    'saved': state => state.saved.map((post) => {
+      return {
+        photo: post.photo.thumb,
+        likeCount: post.amount.like,
+        commentCount: post.amount.comment
+      }
+    }),
+  }),
+
+}
+</script>
+
+<style lang="sass" scoped>
+  // .v-p-profile-page
+    
+</style>

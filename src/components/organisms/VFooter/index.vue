@@ -3,12 +3,12 @@
     <div class="left">
       <div class="container" v-for="item in links" :key="item.id">
         <VLink :to="item.link">
-          <VText bold="bold" :color="colors.primaryColor">{{ item.title }}</VText>
+          <VText uppercase bold="bold" size="12px" :color="colors.primaryColor">{{ item.title }}</VText>
         </VLink>
       </div>
     </div>
     <div class="right">
-      <VText bold="bold" :color="colors.secondaryLightTextColor">© 2019 INSTAGRAM</VText>
+      <VText bold="bold" size="12px" :color="colors.secondaryLightTextColor">© 2019 INSTAGRAM</VText>
     </div>
   </div>
 </template>
