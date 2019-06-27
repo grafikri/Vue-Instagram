@@ -6,7 +6,7 @@
     @mouseout="handleMouseOut"
   >
     <VButton>
-      <VImage :url="url"/>
+      <VImage width="100%" :url="url"/>
       <div class="overlay"></div>
       <div class="box">
         <div class="box-item">
