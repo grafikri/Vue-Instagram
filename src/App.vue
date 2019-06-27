@@ -5,21 +5,27 @@
       <router-link to="/about">About</router-link>
     </div>-->
     <!-- <router-view/> -->
-    <VProfile :user="user" :posts="posts" :saved="saved"/>
+    <!-- <VProfile :user="user" :posts="posts" :saved="saved"/> -->
+
+    <VFooter
+      :links="[{ title: 'About Us', link: '/about'}, { title: 'Support', link: '/support'}]"
+    />
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex"
 
-import style from './assets/style/_colors.sass';
+import style from './assets/style/_colors.sass'
 import VProfile from '@/components/templates/VProfile'
+import VFooter from '@/components/organisms/VFooter'
 
 
 export default {
   name: "App",
   components: {
-    VProfile
+    VProfile,
+    VFooter
   },
   created() {
 
