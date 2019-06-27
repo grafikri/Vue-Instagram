@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import VHome from '@/components/pages/VHome'
-import VAuthProfile from '@/components/pages/VAuthProfile'
 import VExplorePage from '@/components/pages/VExplorePage'
 import VProfilePage from '@/components/pages/VProfilePage'
 
