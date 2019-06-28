@@ -5,12 +5,13 @@
       <router-link to="/about">About</router-link>
     </div>-->
     <!-- <router-view/> -->
+    <!-- url="https://fakeimg.pl/200x100/?text=Photo&font=lobster" -->
     <div class="box" style="width: 400px; height: 400px;">
       <VImage
-        width="250"
-        measureType="px"
-        aspectRatio="1:1"
-        url="https://fakeimg.pl/200x100/?text=Photo&font=lobster"
+        width="100"
+        measureType="%"
+        aspectRatio="4:3"
+        url="https://cdn2.gazeteaksam.com/aksam/imgsdisk/2018/10/25/251020181958328030167.jpg"
       />
     </div>
   </div>

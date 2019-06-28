@@ -41,28 +41,7 @@ export default {
 
     imagesLoaded(this.$refs.container, () => {
 
-      let imageWidth = this.$refs.photo.offsetWidth
-      let imageHeight = this.$refs.photo.offsetHeight
-
-      let containerWidth = this.$refs.container.offsetWidth
-      let containerHeight = this.$refs.container.offsetHeight
-
-
-      let position = "center"
-
-      let xDiff = imageWidth - containerWidth
-      let yDiff = imageHeight - containerHeight
-
-      let xPos = xDiff / 2
-      let yPos = yDiff / 2
-      this.imageStyle = {
-        marginLeft: (xPos * -1) + "px",
-        marginTop: (yPos * -1) + "px"
-      }
-
-      console.log("container: ", containerWidth, containerHeight)
-      console.log("image: ", imageWidth, imageHeight)
-
+      this.adjustImageSizes()
     })
 
 
@@ -108,8 +87,81 @@ export default {
     }
   },
   methods: {
+    adjustImageSizes() {
+      let imageWidth = this.$refs.photo.offsetWidth
+      let imageHeight = this.$refs.photo.offsetHeight
+      let imageRatio = imageWidth / imageHeight
 
+      let containerWidth = this.$refs.container.offsetWidth
+      let containerHeight = this.$refs.container.offsetHeight
 
+      let widen = false
+      let hiden = true
+
+      let smart = false
+
+      if (imageWidth > imageHeight) {
+        hiden = true
+      } else {
+        widen = true
+      }
+
+      if (widen) {
+
+        let newImageWidth = containerWidth
+        let newImageHeight = containerWidth / (imageRatio)
+
+        let imageNewPos = this.getImagePos({ width: newImageWidth, height: newImageHeight }, { width: containerWidth, height: containerHeight })
+
+        let newImageStyle = {
+          width: newImageWidth + "px",
+          height: newImageHeight + "px",
+          marginLeft: imageNewPos.xPos + "px", marginTop: imageNewPos.yPos + "px"
+        }
+
+        this.imageStyle = { ...this.imageStyle, ...newImageStyle }
+
+      } else if (hiden) {
+
+        let newImageHeight = containerHeight
+        let newImageWidth = containerHeight * (imageRatio)
+
+        let imageNewPos = this.getImagePos({ width: newImageWidth, height: newImageHeight }, { width: containerWidth, height: containerHeight })
+
+        let newImageStyle = {
+          width: newImageWidth + "px",
+          height: newImageHeight + "px",
+          marginLeft: imageNewPos.xPos + "px", marginTop: imageNewPos.yPos + "px"
+        }
+
+        this.imageStyle = { ...this.imageStyle, ...newImageStyle }
+
+      }
+      else {
+
+        let imageNewPos = this.getImagePos({ width: imageWidth, height: imageHeight }, { width: containerWidth, height: containerHeight })
+
+        let newImageStyle = {
+          marginLeft: imageNewPos.xPos + "px", marginTop: imageNewPos.yPos + "px"
+        }
+
+        this.imageStyle = { ...this.imageStyle, ...newImageStyle }
+
+        console.log("salt: ", imageNewPos)
+      }
+    },
+    getImagePos(image, container) {
+
+      let position = "center"
+      let xDiff = image.width - container.width
+      let yDiff = image.height - container.height
+
+      let xPos = (xDiff / 2) * -1
+      let yPos = (yDiff / 2) * -1
+
+      return { xPos, yPos }
+
+    }
   }
 }
 </script>
@@ -118,6 +170,7 @@ export default {
   .v-a-image
     background: red
     margin: auto
+    overflow: hidden
 </style>
 
 
