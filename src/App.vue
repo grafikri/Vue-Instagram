@@ -6,10 +6,9 @@
     </div>-->
     <!-- <router-view/> -->
     <!-- url="https://fakeimg.pl/200x100/?text=Photo&font=lobster" -->
-    <div class="box" style="width: 400px; height: 400px;">
+    <div class="box" style="width: 300px; height: 200px">
       <VImage
-        width="100"
-        measureType="%"
+        :width="100"
         aspectRatio="4:3"
         url="https://cdn2.gazeteaksam.com/aksam/imgsdisk/2018/10/25/251020181958328030167.jpg"
       />

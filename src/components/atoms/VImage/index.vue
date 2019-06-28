@@ -13,14 +13,25 @@ export default {
   name: "VImage",
   data() {
     return {
-      imageStyle: {},
-      message: "Merhaba"
+      message: "Merhaba",
+      containerWidth: 0,
+      containerHeight: 0,
+      imageWidth: 0,
+      imageHeight: 0,
+      imageXPos: 0,
+      imageYPos: 0
     }
   },
   props: {
     url: String,
-    width: [String],
-    height: [String],
+    width: {
+      type: Number,
+      default: 0
+    },
+    height: {
+      type: Number,
+      default: 0
+    },
     rounded: Boolean,
     aspectRatio: {
       type: String,
@@ -28,25 +39,24 @@ export default {
     },
     measureType: {
       type: String, //pixel or percent,
-      default: "%"
+      default: "px"
     }
-  },
-  created() {
-
-  },
-  beforeMount() {
-
   },
   mounted() {
 
     imagesLoaded(this.$refs.container, () => {
-
       this.adjustImageSizes()
     })
-
-
   },
   computed: {
+    imageStyle() {
+      return {
+        width: this.imageWidth + "px",
+        height: this.imageHeight + "px",
+        marginLeft: this.imageXPos + "px",
+        marginTop: this.imageYPos + "px"
+      }
+    },
     styleObject() {
 
       let borderRadius = this.rounded ? 999999 + "px" : 'inherit'
@@ -58,25 +68,24 @@ export default {
     },
     containerStyle() {
 
-      let boxWidth = "initial"
-      let boxHeight = "initial"
+      let boxWidth = "10"
+      let boxHeight = "10"
 
       if (this.width && this.height) {
-        boxWidth = this.width + this.measureType
-        boxHeight = this.height + this.measureType
-
+        boxWidth = this.width
+        boxHeight = this.height
       } else if (this.width) {
 
-        boxWidth = this.width + this.measureType
-        boxHeight = (this.width / this.aspectRatioCons) + this.measureType
+        this.containerWidth = this.width
+        this.containerHeight = (this.width / this.aspectRatioCons)
       }
       else if (this.height) {
-        boxHeight = this.height + this.measureType
-        boxWidth = (this.height / this.aspectRatioCons) + this.measureType
+        boxHeight = this.height
+        boxWidth = (this.height / this.aspectRatioCons)
       }
 
       return {
-        width: boxWidth, height: boxHeight
+        width: this.containerWidth + "px", height: this.containerHeight + "px"
       }
     },
     aspectRatioCons() {
@@ -86,69 +95,44 @@ export default {
       return width / height
     }
   },
+  watch: {
+    width(newVal, oldVal) {
+      //this.adjustImageSizes()
+    }
+  },
   methods: {
     adjustImageSizes() {
-      let imageWidth = this.$refs.photo.offsetWidth
-      let imageHeight = this.$refs.photo.offsetHeight
+      let imageWidth = this.$refs.photo.naturalWidth
+      let imageHeight = this.$refs.photo.naturalHeight
       let imageRatio = imageWidth / imageHeight
 
-      let containerWidth = this.$refs.container.offsetWidth
-      let containerHeight = this.$refs.container.offsetHeight
 
-      let widen = false
-      let hiden = true
-
+      let widen = true
+      let hiden = false
       let smart = false
 
-      if (imageWidth > imageHeight) {
-        hiden = true
-      } else {
-        widen = true
-      }
+      // if (imageWidth > imageHeight) {
+      //   hiden = true
+      // } else {
+      //   widen = true
+      // }
 
       if (widen) {
 
-        let newImageWidth = containerWidth
-        let newImageHeight = containerWidth / (imageRatio)
-
-        let imageNewPos = this.getImagePos({ width: newImageWidth, height: newImageHeight }, { width: containerWidth, height: containerHeight })
-
-        let newImageStyle = {
-          width: newImageWidth + "px",
-          height: newImageHeight + "px",
-          marginLeft: imageNewPos.xPos + "px", marginTop: imageNewPos.yPos + "px"
-        }
-
-        this.imageStyle = { ...this.imageStyle, ...newImageStyle }
+        this.imageWidth = this.containerWidth
+        this.imageHeight = this.imageWidth / (imageRatio)
 
       } else if (hiden) {
 
-        let newImageHeight = containerHeight
-        let newImageWidth = containerHeight * (imageRatio)
-
-        let imageNewPos = this.getImagePos({ width: newImageWidth, height: newImageHeight }, { width: containerWidth, height: containerHeight })
-
-        let newImageStyle = {
-          width: newImageWidth + "px",
-          height: newImageHeight + "px",
-          marginLeft: imageNewPos.xPos + "px", marginTop: imageNewPos.yPos + "px"
-        }
-
-        this.imageStyle = { ...this.imageStyle, ...newImageStyle }
+        this.imageHeight = this.containerHeight
+        this.imageWidth = this.imageHeight * (imageRatio)
 
       }
-      else {
 
-        let imageNewPos = this.getImagePos({ width: imageWidth, height: imageHeight }, { width: containerWidth, height: containerHeight })
+      let imageNewPos = this.getImagePos({ width: this.imageWidth, height: this.imageHeight }, { width: this.containerWidth, height: this.containerHeight })
 
-        let newImageStyle = {
-          marginLeft: imageNewPos.xPos + "px", marginTop: imageNewPos.yPos + "px"
-        }
-
-        this.imageStyle = { ...this.imageStyle, ...newImageStyle }
-
-        console.log("salt: ", imageNewPos)
-      }
+      this.imageXPos = imageNewPos.xPos
+      this.imageYPos = imageNewPos.yPos
     },
     getImagePos(image, container) {
 
@@ -171,6 +155,7 @@ export default {
     background: red
     margin: auto
     overflow: hidden
+    line-height: 0
 </style>
 
 
