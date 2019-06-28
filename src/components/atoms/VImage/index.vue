@@ -1,13 +1,22 @@
 <template>
-  <div class="v-a-image" :style="containerStyle">
-    <!-- <img ref="photo" class="v-a-image" :style="styleObject" :src="url"> -->
+  <div ref="container" class="v-a-image" :style="containerStyle">
+    <img ref="photo" class="v-a-image" :style="imageStyle" :src="url">
   </div>
-  <!-- <VImage aspectRatio="1" width="100px" /> -->
 </template>
 
 <script>
+
+import imagesLoaded from 'imagesloaded'
+
+
 export default {
   name: "VImage",
+  data() {
+    return {
+      imageStyle: {},
+      message: "Merhaba"
+    }
+  },
   props: {
     url: String,
     width: [String],
@@ -23,9 +32,40 @@ export default {
     }
   },
   created() {
+
+  },
+  beforeMount() {
+
   },
   mounted() {
-    console.log("this: ", this.$el.parentNode.offsetWidth)
+
+    imagesLoaded(this.$refs.container, () => {
+
+      let imageWidth = this.$refs.photo.offsetWidth
+      let imageHeight = this.$refs.photo.offsetHeight
+
+      let containerWidth = this.$refs.container.offsetWidth
+      let containerHeight = this.$refs.container.offsetHeight
+
+
+      let position = "center"
+
+      let xDiff = imageWidth - containerWidth
+      let yDiff = imageHeight - containerHeight
+
+      let xPos = xDiff / 2
+      let yPos = yDiff / 2
+      this.imageStyle = {
+        marginLeft: (xPos * -1) + "px",
+        marginTop: (yPos * -1) + "px"
+      }
+
+      console.log("container: ", containerWidth, containerHeight)
+      console.log("image: ", imageWidth, imageHeight)
+
+    })
+
+
   },
   computed: {
     styleObject() {
@@ -77,6 +117,7 @@ export default {
 <style lang="sass" scoped>
   .v-a-image
     background: red
+    margin: auto
 </style>
 
 
