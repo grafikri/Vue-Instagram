@@ -19,7 +19,8 @@ export default {
       imageTopPos: 0,
       resizeId: 0,
       imageRealWidth: 0,
-      imageRealHeight: 0
+      imageRealHeight: 0,
+      imageShow: false
     }
   },
   computed: {
@@ -31,9 +32,10 @@ export default {
     imageStyle() {
       return {
         height: this.imageWidth == 0 ? this.imageHeight + "px" : "initial",
-        width: this.imageHeight == 0 ? this.imageWidth + "px" : "initial",
+        width: this.imageHeight == 0 ? this.imageWidth + "px" : "100%",
         marginLeft: this.imageLeftPos + "px",
         marginTop: this.imageTopPos + "px",
+        //display: this.imageShow ? "inline-block" : "none"
 
       }
     }
@@ -46,14 +48,17 @@ export default {
     }
   },
   mounted() {
+
     imagesLoaded(this.$refs.image, () => {
 
       this.imageRealWidth = this.$refs.image.naturalWidth
       this.imageRealHeight = this.$refs.image.naturalHeight
       this.updateBoxSize()
+      this.imageShow = true
+
     })
 
-    //this.updateBoxSize()
+    this.updateBoxSize()
     window.addEventListener("resize", this.detectWindowSize)
   },
   destroyed() {
@@ -75,10 +80,9 @@ export default {
       let imageRealRatio = this.imageRealWidth / this.imageRealHeight
       let direction = this.ratio > imageRealRatio ? "width" : "height"
 
-
       if (direction == "width") {
 
-        this.imageWidth = containerWidth
+        this.imageWidth = "100%"
         this.imageHeight = 0
 
         let imageVirtualHeight = containerWidth / imageRealRatio
