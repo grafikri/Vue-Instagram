@@ -4,7 +4,8 @@
       <VUserLine :photo="user.photo" :name="user.name" :size="32"/>
     </div>
     <div class="body">
-      <VImage aspectRatio="3:4" :width="imageWidth" :url="post.photo"/>
+      <!-- <VImage aspectRatio="3:4" :width="imageWidth" :url="post.photo"/> -->
+      <VBoxImage :ratio="1/1" :url="post.photo"/>
 
       <div class="tools">
         <div class="left">
@@ -50,6 +51,7 @@
 
 import VIcon from '@/components/atoms/VIcon'
 import VImage from '@/components/atoms/VImage'
+import VBoxImage from '@/components/atoms/VBoxImage'
 import VComment from '@/components/molecules/VComment'
 import VUserLine from '@/components/molecules/VUserLine'
 import VPostCommentInput from "@/components/molecules/VPostCommentInput"
@@ -61,6 +63,7 @@ export default {
     VUserLine,
     VComment,
     VImage,
+    VBoxImage,
     VIcon
   },
   data() {
