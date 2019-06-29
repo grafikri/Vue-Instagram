@@ -40,7 +40,12 @@ export default {
     measureType: {
       type: String, //pixel or percent,
       default: "px"
-    }
+    },
+    fit: {
+      type: String,
+      default: "smart"
+    },
+
   },
   mounted() {
 
@@ -63,7 +68,6 @@ export default {
 
       return {
         borderRadius: borderRadius,
-        // ...this.calculateWidthHeight()
       }
     },
     containerStyle() {
@@ -96,38 +100,66 @@ export default {
     }
   },
   watch: {
-    width(newVal, oldVal) {
-      //this.adjustImageSizes()
+    containerStyle(newVal, oldVal) {
+      this.adjustImageSizes()
+    },
+    imageWidth(newVal, oldVal) {
+      this.updateImagePos()
+    },
+    imageHeight(newVal, oldVal) {
+      this.updateImagePos()
     }
   },
   methods: {
+    calculateEdgeMeasure(direction = "width", measure, ratio) {
+
+      let width = 0
+      let height = 0
+
+      switch (direction) {
+        case "width":
+          width = measure
+          height = measure / ratio
+          break
+        case "height":
+          height = measure
+          width = measure * ratio
+          break
+      }
+
+      return {
+        width, height
+      }
+
+    },
+
     adjustImageSizes() {
+
       let imageWidth = this.$refs.photo.naturalWidth
       let imageHeight = this.$refs.photo.naturalHeight
       let imageRatio = imageWidth / imageHeight
 
+      let imageSize = {}
 
-      let widen = true
-      let hiden = false
-      let smart = false
 
-      // if (imageWidth > imageHeight) {
-      //   hiden = true
-      // } else {
-      //   widen = true
-      // }
-
-      if (widen) {
-
-        this.imageWidth = this.containerWidth
-        this.imageHeight = this.imageWidth / (imageRatio)
-
-      } else if (hiden) {
-
-        this.imageHeight = this.containerHeight
-        this.imageWidth = this.imageHeight * (imageRatio)
-
+      switch (this.fit) {
+        case "smart":
+          let direction = this.aspectRatioCons > imageRatio ? "width" : "height"
+          imageSize = this.calculateEdgeMeasure(direction, this.containerWidth, imageRatio)
+          break
+        case "width":
+          imageSize = this.calculateEdgeMeasure("width", this.containerWidth, imageRatio)
+          break
+        case "height":
+          imageSize = this.calculateEdgeMeasure("height", this.containerWidth, imageRatio)
+          break
       }
+
+      this.imageWidth = imageSize.width
+      this.imageHeight = imageSize.height
+
+    },
+    updateImagePos() {
 
       let imageNewPos = this.getImagePos({ width: this.imageWidth, height: this.imageHeight }, { width: this.containerWidth, height: this.containerHeight })
 
