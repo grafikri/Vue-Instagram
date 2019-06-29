@@ -4,15 +4,15 @@
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>-->
-    <!-- <router-view/> -->
+
     <!-- url="https://fakeimg.pl/200x100/?text=Photo&font=lobster" -->
-    <div class="box" style="width: 300px; height: 200px">
+    <!-- <div class="box" style="width: 300px; height: 200px">
       <VImage
-        :width="100"
-        aspectRatio="4:3"
-        url="https://cdn2.gazeteaksam.com/aksam/imgsdisk/2018/10/25/251020181958328030167.jpg"
+        :width="180"
+        url="http://i.hurimg.com/i/hurriyet/75/300x170/5cf4caa22269a224b8e90d61.jpg"
       />
-    </div>
+    </div>-->
+    <router-view/>
   </div>
 </template>
 
