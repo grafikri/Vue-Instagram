@@ -85,20 +85,19 @@ export default {
     },
     containerStyle() {
 
-      let boxWidth = "10"
-      let boxHeight = "10"
-
       if (this.width && this.height) {
-        boxWidth = this.width
-        boxHeight = this.height
+
+        this.containerWidth = this.width
+        this.containerHeight = this.height
       } else if (this.width) {
 
         this.containerWidth = this.width
         this.containerHeight = (this.width / this.aspectRatioCons)
       }
       else if (this.height) {
-        boxHeight = this.height
-        boxWidth = (this.height / this.aspectRatioCons)
+
+        this.containerHeight = this.height
+        this.containerWidth = (this.height / this.aspectRatioCons)
       }
 
       return {
