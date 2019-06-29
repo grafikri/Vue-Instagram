@@ -1,10 +1,10 @@
 <template>
-  <div class="v-o-post">
+  <div class="v-o-post" ref="post">
     <div class="header">
       <VUserLine :photo="user.photo" :name="user.name" :size="32"/>
     </div>
     <div class="body">
-      <VImage width="100%" :url="post.photo"/>
+      <VImage aspectRatio="3:4" :width="imageWidth" :url="post.photo"/>
 
       <div class="tools">
         <div class="left">
@@ -63,6 +63,11 @@ export default {
     VImage,
     VIcon
   },
+  data() {
+    return {
+      imageWidth: 0
+    }
+  },
   props: {
     user: {
       type: Object,
@@ -92,9 +97,22 @@ export default {
       }
     },
   },
+  created() {
+
+  },
+  mounted() {
+    this.getWindowSize()
+    window.addEventListener("resize", this.getWindowSize)
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.getWindowSize)
+  },
   methods: {
     submit(text) {
       console.log("submit: ", text)
+    },
+    getWindowSize() {
+      this.imageWidth = this.$refs.post.offsetWidth - 2
     }
   }
 }
