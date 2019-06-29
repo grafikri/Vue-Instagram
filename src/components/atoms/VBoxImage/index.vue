@@ -5,6 +5,9 @@
 </template>
 
 <script>
+
+import imagesLoaded from 'imagesloaded'
+
 export default {
   name: "VBoxImage",
   data() {
@@ -15,8 +18,8 @@ export default {
       imageLeftPos: 0,
       imageTopPos: 0,
       resizeId: 0,
-      imageRealWidth: 781,
-      imageRealHeight: 439
+      imageRealWidth: 0,
+      imageRealHeight: 0
     }
   },
   computed: {
@@ -43,6 +46,13 @@ export default {
     }
   },
   mounted() {
+    imagesLoaded(this.$refs.image, () => {
+
+      this.imageRealWidth = this.$refs.image.naturalWidth
+      this.imageRealHeight = this.$refs.image.naturalHeight
+      this.updateBoxSize()
+    })
+
     //this.updateBoxSize()
     window.addEventListener("resize", this.detectWindowSize)
   },
@@ -97,7 +107,7 @@ export default {
   .v-a-box-image
     width: 100%
     overflow: hidden
-    background: red
+    // background: red
     background-repeat: no-repeat
     background-size: auto
 
