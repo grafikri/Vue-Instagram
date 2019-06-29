@@ -1,7 +1,7 @@
 <template>
   <div class="v-m-user-line">
     <div class="image">
-      <VImage v-if="photo" :url="photo" :width="size + 'px'" rounded/>
+      <VImage v-if="photo" :url="photo" :width="size" rounded/>
     </div>
     <div class="titles">
       <p class="name" v-if="name">{{ name }}</p>
