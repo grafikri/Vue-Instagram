@@ -219,7 +219,7 @@ export default {
 
 <style lang="sass" scoped>
   .v-a-image
-    background: red
+    // background: red
     margin: auto
     overflow: hidden
     line-height: 0
