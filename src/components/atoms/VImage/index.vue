@@ -45,10 +45,23 @@ export default {
       type: String,
       default: "smart"
     },
+    xPos: {
+      type: String,
+      default: "center",
+      validator: (value) => {
+        return ["left", "center", "right"].indexOf(value) !== -1
+      }
+    },
+    yPos: {
+      type: String,
+      default: "middle",
+      validator: (value) => {
+        return ["top", "middle", "bottom"].indexOf(value) !== -1
+      }
+    }
 
   },
   mounted() {
-
     imagesLoaded(this.$refs.container, () => {
       this.adjustImageSizes()
     })
@@ -97,6 +110,38 @@ export default {
       let width = arrAspectRatio[0]
       let height = arrAspectRatio[1]
       return width / height
+    },
+    imagePos() {
+
+      let xPos = 0
+      let yPos = 0
+
+      switch (this.xPos) {
+        case "left":
+          xPos = 0
+          console.log("okss")
+          break
+        case "center":
+          xPos = ((this.imageWidth - this.containerWidth) / 2) * -1
+          break
+        case "right":
+          xPos = (this.imageWidth - this.containerWidth) * -1
+          break
+      }
+
+      switch (this.yPos) {
+        case "top":
+          yPos = 0
+          break
+        case "middle":
+          yPos = ((this.imageHeight - this.containerHeight) / 2) * -1
+          break
+        case "bottom":
+          yPos = (this.imageHeight - this.containerHeight) * -1
+          break
+      }
+
+      return { xPos, yPos }
     }
   },
   watch: {
@@ -160,11 +205,8 @@ export default {
 
     },
     updateImagePos() {
-
-      let imageNewPos = this.getImagePos({ width: this.imageWidth, height: this.imageHeight }, { width: this.containerWidth, height: this.containerHeight })
-
-      this.imageXPos = imageNewPos.xPos
-      this.imageYPos = imageNewPos.yPos
+      this.imageXPos = this.imagePos.xPos
+      this.imageYPos = this.imagePos.yPos
     },
     getImagePos(image, container) {
 
