@@ -75,14 +75,6 @@ export default {
         marginTop: this.imageYPos + "px"
       }
     },
-    styleObject() {
-
-      let borderRadius = this.rounded ? 999999 + "px" : 'inherit'
-
-      return {
-        borderRadius: borderRadius,
-      }
-    },
     containerStyle() {
 
       if (this.width && this.height) {
@@ -100,8 +92,10 @@ export default {
         this.containerWidth = (this.height / this.aspectRatioCons)
       }
 
+      let borderRadius = this.rounded ? 999999 + "px" : 'inherit'
       return {
-        width: this.containerWidth + "px", height: this.containerHeight + "px"
+        width: this.containerWidth + "px", height: this.containerHeight + "px",
+        borderRadius: borderRadius
       }
     },
     aspectRatioCons() {
