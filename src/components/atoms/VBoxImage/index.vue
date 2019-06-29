@@ -14,6 +14,9 @@ export default {
       imageWidth: 0,
       imageLeftPos: 0,
       imageTopPos: 0,
+      resizeId: 0,
+      imageRealWidth: 781,
+      imageRealHeight: 439
     }
   },
   computed: {
@@ -33,37 +36,54 @@ export default {
     }
   },
   props: {
-    url: String
+    url: String,
+    ratio: {
+      type: Number,
+      default: 1 / 1
+    }
   },
   mounted() {
     //this.updateBoxSize()
-    window.addEventListener("resize", this.updateBoxSize)
+    window.addEventListener("resize", this.detectWindowSize)
   },
   destroyed() {
-    window.removeEventListener("resize", this.updateBoxSize)
+    window.removeEventListener("resize", this.detectWindowSize)
   },
   methods: {
+    detectWindowSize() {
+      clearTimeout(this.resizeId);
+      this.resizeId = setTimeout(this.updateBoxSize, 0);
+    },
     updateBoxSize() {
 
-      this.containerHeight = this.$refs.container.offsetWidth
+      this.containerHeight = this.$refs.container.offsetWidth / this.ratio
       this.imageHeight = this.containerHeight
 
-      let imageWidth = this.$refs.image.offsetWidth
-      let imageHeight = this.$refs.image.offsetHeight
+      let containerWidth = this.containerHeight * this.ratio
+      let containerHeight = this.containerHeight
+
+      let imageRealRatio = this.imageRealWidth / this.imageRealHeight
+      let direction = this.ratio > imageRealRatio ? "width" : "height"
 
 
+      if (direction == "width") {
 
-      if (imageWidth == 0 && imageHeight == 0) {
-
-      } else if (imageWidth > imageHeight) {
-        this.imageHeight = this.containerHeight
-        let diff = this.$refs.image.offsetWidth - this.containerHeight
-        this.imageLeftPos = (diff / 2) * (-1)
-      } else {
+        this.imageWidth = containerWidth
         this.imageHeight = 0
-        this.imageWidth = this.containerHeight
-        let diff = this.$refs.image.offsetHeight - this.containerHeight
+
+        let imageVirtualHeight = containerWidth / imageRealRatio
+        let diff = imageVirtualHeight - containerHeight
         this.imageTopPos = (diff / 2) * (-1)
+
+      } else {
+
+        this.imageHeight = containerHeight
+        this.imageWidth = 0
+
+        let imageVirtualWidth = containerHeight * imageRealRatio
+        let diff = imageVirtualWidth - containerWidth
+        this.imageLeftPos = (diff / 2) * (-1)
+
       }
 
 
@@ -77,7 +97,7 @@ export default {
   .v-a-box-image
     width: 100%
     overflow: hidden
-    // background: red
+    background: red
     background-repeat: no-repeat
     background-size: auto
 
