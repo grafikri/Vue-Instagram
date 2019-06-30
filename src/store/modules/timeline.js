@@ -47,12 +47,10 @@ const actions = {
         return { user, post }
       })
 
-
-
       context.commit('addPosts', posts)
-      console.log("success: ", response)
+
     }, fail => {
-      console.log("fail: ", fail)
+
     })
   }
 }
