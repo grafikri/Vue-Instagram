@@ -48,17 +48,13 @@ export default {
       default: 1 / 1
     }
   },
+  watch: {
+    url(newValue, oldValue) {
+      this.getImage()
+    }
+  },
   mounted() {
-
-    imagesLoaded(this.$refs.image, () => {
-
-      this.imageRealWidth = this.$refs.image.naturalWidth
-      this.imageRealHeight = this.$refs.image.naturalHeight
-      this.updateBoxSize()
-      this.imageShow = true
-
-    })
-
+    this.getImage()
     this.updateBoxSize()
     window.addEventListener("resize", this.updateBoxSize)
   },
@@ -66,6 +62,16 @@ export default {
     window.removeEventListener("resize", this.updateBoxSize)
   },
   methods: {
+    getImage() {
+      imagesLoaded(this.$refs.image, () => {
+
+        this.imageRealWidth = this.$refs.image.naturalWidth
+        this.imageRealHeight = this.$refs.image.naturalHeight
+        this.updateBoxSize()
+        this.imageShow = true
+
+      })
+    },
     updateBoxSize() {
 
       if (this.imageRealWidth == 0) {
@@ -103,7 +109,7 @@ export default {
   .v-a-box-image
     width: 100%
     overflow: hidden
-    background: red
+    // background: red
     background-repeat: no-repeat
     background-size: auto
 
