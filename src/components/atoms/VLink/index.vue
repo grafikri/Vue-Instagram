@@ -30,7 +30,7 @@ export default {
   .v-a-link
     font-size: 14px
     cursor: pointer
-    line-height: 0
+    // line-height: 0
     display: block
     padding: 0
     margin: 0
