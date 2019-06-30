@@ -4,7 +4,7 @@
       <VUserLine :photo="user.photo" :name="user.name" :size="32"/>
     </div>
     <div class="body">
-      <VBoxImage :ratio="16/9" :url="post.photo"/>
+      <VBoxImage :ratio="1/1" :url="post.photo"/>
 
       <div class="tools">
         <div class="left">
