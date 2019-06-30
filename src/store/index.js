@@ -8,7 +8,7 @@ import posts from './modules/posts'
 import saved from './modules/saved'
 import user from './modules/user'
 import suggestions_user from './modules/suggestions_user'
-import stories_user from './modules/stories_user'
+import stories from './modules/stories'
 import explore_new_user from './modules/explore_new_user'
 import explore from './modules/explore'
 import auth from './modules/auth'
@@ -22,7 +22,7 @@ export default new Vuex.Store({
     explore_new_user,
     timeline,
     suggestions_user,
-    stories_user,
+    stories,
     auth
   }
 })
