@@ -67,7 +67,6 @@ const actions = {
 
     theMovieDb.people.getImages({ id: userId }, success => {
       let response = JSON.parse(success)
-      console.log("response: ", response)
       let posts = response.profiles.map((item, index) => {
         return {
           id: index + 1,
@@ -94,7 +93,6 @@ const actions = {
 
     })
 
-    console.log("userr: ", userId)
   }
 }
 
