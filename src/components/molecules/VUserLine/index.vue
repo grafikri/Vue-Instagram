@@ -1,11 +1,15 @@
 <template>
   <div class="v-m-user-line">
-    <div class="image">
-      <VImage v-if="photo" :url="photo" :width="size" rounded/>
+    <div class="image" :style="{ width: size + 'px'}">
+      <VLink :to="{ name: 'profile', params: {id: id}}">
+        <VBoxImage v-if="photo" :url="photo" rounded/>
+      </VLink>
     </div>
     <div class="titles">
-      <p class="name" v-if="name">{{ name }}</p>
-      <p class="desc" v-if="desc">{{ desc }}</p>
+      <VLink :to="{ name: 'profile', params: {id: id}}">
+        <p class="name" v-if="name">{{ name }}</p>
+        <p class="desc" v-if="desc">{{ desc }}</p>
+      </VLink>
     </div>
     <div class="button"></div>
   </div>
@@ -15,12 +19,15 @@
 <script>
 
 
-import VImage from '@/components/atoms/VImage'
+import VLink from '@/components/atoms/VLink'
+import VBoxImage from '@/components/atoms/VBoxImage'
+
 
 export default {
   name: "VUserLine",
   components: {
-    VImage
+    VBoxImage,
+    VLink
   },
   props: {
     name: {
@@ -38,6 +45,10 @@ export default {
     size: {
       type: Number,
       default: 48
+    },
+    id: {
+      type: [String, Number],
+      default: 0
     }
   }
 }
@@ -55,6 +66,8 @@ export default {
         left: 10px
     p
       margin: 0
+      color: $dark-text-color
+      line-height: initial
       &.name
         font-size: 14px
         font-weight: 600
