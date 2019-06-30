@@ -26,6 +26,7 @@ export default {
     containerStyle() {
       return {
         height: this.containerHeight + "px",
+        borderRadius: this.rounded ? "9999999px" : "initial"
       }
     },
     imageStyle() {
@@ -41,6 +42,7 @@ export default {
   },
   props: {
     url: String,
+    rounded: Boolean,
     ratio: {
       type: Number,
       default: 1 / 1
