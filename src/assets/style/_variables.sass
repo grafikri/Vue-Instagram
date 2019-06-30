@@ -14,6 +14,12 @@ $border-line: solid 1px $stroke-color
   border: $border-line
   @extend %border-style
 
+@mixin customDot($lineCount: 3)
+  overflow: hidden
+  display: -webkit-inline-box
+  -webkit-line-clamp: $lineCount
+  -webkit-box-orient: vertical
+
 $font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif
 
 
