@@ -6,13 +6,19 @@
 
 <script>
 
-import { mapState } from "vuex"
+import { mapState, mapActions } from "vuex"
 import VProfile from '@/components/templates/VProfile'
 
 export default {
   name: "VProfilePage",
   components: {
     VProfile,
+  },
+  created() {
+    this.fetchUser({ id: this.$route.params.id })
+  },
+  methods: {
+    ...mapActions({ fetchUser: 'user/fetchUser' })
   },
   computed: mapState({
     user: 'user',
