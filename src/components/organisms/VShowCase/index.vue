@@ -70,7 +70,7 @@ export default {
     .container
       display: flex
       .row
-        flex-grow: 1
+        flex-basis: 33%
         .item
           margin: 10px
           
