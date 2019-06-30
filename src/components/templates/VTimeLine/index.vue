@@ -9,7 +9,13 @@
         </div>
         <div class="right">
           <div class="section">
-            <VUserLine :photo="auth.photo" :name="auth.name" :desc="auth.full_name" :size="52"/>
+            <VUserLine
+              :id="auth.id"
+              :photo="auth.photo"
+              :name="auth.name"
+              :desc="auth.full_name"
+              :size="52"
+            />
           </div>
           <div class="section">
             <VUserBrowse :scroll="180" title="Stories" :users="stories_user"/>
