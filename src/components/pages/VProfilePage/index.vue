@@ -15,8 +15,11 @@ export default {
     VProfile,
   },
   created() {
-    this.fetchUser({ id: this.$route.params.id })
-    this.fetchPosts({ id: this.$route.params.id })
+
+    let userId = this.$route.name == "auth" ? this.$store.state.auth.auth.id : this.$route.params.id
+
+    this.fetchUser({ id: userId })
+    this.fetchPosts({ id: userId })
   },
   methods: {
     ...mapActions({ fetchUser: 'user/fetchUser', fetchPosts: 'posts/fetchPosts' })
