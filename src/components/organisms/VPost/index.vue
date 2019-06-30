@@ -1,7 +1,7 @@
 <template>
   <div class="v-o-post" ref="post">
     <div class="header">
-      <VUserLine :photo="user.photo" :name="user.name" :size="32"/>
+      <VUserLine :photo="user.photo" :name="user.name" :size="32" :id="user.id"/>
     </div>
     <div class="body">
       <VBoxImage :ratio="1/1" :url="post.photo"/>
@@ -23,7 +23,7 @@
     <div class="footer">
       <div class="comments">
         <p class="view-info">{{ post.viewCount }} viewing</p>
-        <VComment :name="user.name" :comment="user.comment"/>
+        <VComment :name="user.name" :comment="user.comment" :id="user.id"/>
         <p class="comment-count">View all {{ post.comments.count }} comments</p>
 
         <VComment
