@@ -2,7 +2,7 @@
   <div class="v-p-home">
     <VTimeLine
       :suggestions_user="suggestions_user"
-      :stories_user="stories_user"
+      :stories_user="stories"
       :timeLinePosts="timeline"
       :auth="auth"
     />
@@ -11,7 +11,7 @@
 
 <script>
 
-import { mapState } from "vuex"
+import { mapState, mapGetters } from "vuex"
 import VTimeLine from "@/components/templates/VTimeLine"
 
 export default {
@@ -20,7 +20,11 @@ export default {
     VTimeLine
   },
   computed: {
-    ...mapState(["timeline", "suggestions_user", "stories_user", "auth"])
+    ...mapState(["timeline", "suggestions_user"]),
+    ...mapGetters({
+      stories: 'stories/lastStories',
+      auth: 'auth/auth'
+    })
   },
 }
 </script>
