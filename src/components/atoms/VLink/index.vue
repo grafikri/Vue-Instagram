@@ -16,7 +16,7 @@ export default {
     component() {
       if (this.to) return 'router-link'
       if (this.url) return 'a'
-      return 'button'
+      return 'a'
     }
   },
   props: {
@@ -31,7 +31,7 @@ export default {
     font-size: 14px
     cursor: pointer
     line-height: 0
-    display: inline-block
+    display: block
     padding: 0
     margin: 0
     text-decoration: none

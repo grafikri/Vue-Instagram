@@ -5,8 +5,9 @@
     @mouseover="handleMouseOver"
     @mouseout="handleMouseOut"
   >
-    <VLink>
-      <VImage width="100%" :url="url"/>
+    <VLink to="/dsda">
+      <VBoxImage :url="url"/>
+
       <div class="overlay"></div>
       <div class="box">
         <div class="box-item">
@@ -29,7 +30,7 @@
 <script>
 
 import VLink from '@/components/atoms/VLink'
-import VImage from '@/components/atoms/VImage'
+import VBoxImage from '@/components/atoms/VBoxImage'
 import VButton from '@/components/atoms/VButton'
 import VIcon from '@/components/atoms/VIcon'
 import VIconText from '@/components/molecules/VIconText'
@@ -51,7 +52,7 @@ export default {
     }
   },
   components: {
-    VImage,
+    VBoxImage,
     VButton,
     VIcon,
     VIconText,

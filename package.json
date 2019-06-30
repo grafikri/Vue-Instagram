@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "imagesloaded": "^4.1.4",
     "themoviedb-javascript-library": "^3.0.3",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
