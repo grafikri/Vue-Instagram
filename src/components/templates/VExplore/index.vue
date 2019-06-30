@@ -10,7 +10,7 @@
         </div>
       </div>
 
-      <VVerticalSuggestUser :users="users"/>
+      <!-- <VVerticalSuggestUser :users="users"/> -->
 
       <div class="space"></div>
 

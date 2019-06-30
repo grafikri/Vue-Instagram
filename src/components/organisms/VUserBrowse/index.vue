@@ -6,7 +6,13 @@
     </div>
     <div class="body" :style="scrollStyle">
       <div :key="index" v-for="(user, index) in users" class="line">
-        <VUserLine :photo="user.photo" :name="user.name" :desc="user.desc" :size="40"/>
+        <VUserLine
+          :id="user.id"
+          :photo="user.photo"
+          :name="user.name"
+          :desc="user.desc"
+          :size="40"
+        />
       </div>
     </div>
   </div>

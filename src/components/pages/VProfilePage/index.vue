@@ -6,7 +6,7 @@
 
 <script>
 
-import { mapState } from "vuex"
+import { mapState, mapActions } from "vuex"
 import VProfile from '@/components/templates/VProfile'
 
 export default {
@@ -14,9 +14,19 @@ export default {
   components: {
     VProfile,
   },
+  created() {
+
+    let userId = this.$route.name == "auth" ? this.$store.state.auth.auth.id : this.$route.params.id
+
+    this.fetchUser({ id: userId })
+    this.fetchPosts({ id: userId })
+  },
+  methods: {
+    ...mapActions({ fetchUser: 'user/fetchUser', fetchPosts: 'posts/fetchPosts' })
+  },
   computed: mapState({
     user: 'user',
-    'posts': state => state.posts.map((post) => {
+    'posts': state => state.posts.items.map((post) => {
       return {
         photo: post.photo.thumb,
         likeCount: post.amount.like,

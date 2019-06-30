@@ -1,4 +1,5 @@
 import theMovieDb from '@/service/theMovieDb'
+import { randomPage } from '@/helpers'
 
 const state = []
 
@@ -15,7 +16,7 @@ const mutations = {
 const actions = {
   fetchPopularPeople(context) {
 
-    theMovieDb.people.getPopular({}, success => {
+    theMovieDb.people.getPopular({ page: randomPage() }, success => {
 
       let response = JSON.parse(success)
 
@@ -47,12 +48,10 @@ const actions = {
         return { user, post }
       })
 
-
-
       context.commit('addPosts', posts)
-      console.log("success: ", response)
+
     }, fail => {
-      console.log("fail: ", fail)
+
     })
   }
 }

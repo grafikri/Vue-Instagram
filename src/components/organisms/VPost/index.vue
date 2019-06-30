@@ -1,10 +1,10 @@
 <template>
-  <div class="v-o-post">
+  <div class="v-o-post" ref="post">
     <div class="header">
-      <VUserLine :photo="user.photo" :name="user.name" :size="32"/>
+      <VUserLine :photo="user.photo" :name="user.name" :size="32" :id="user.id"/>
     </div>
     <div class="body">
-      <VImage width="100%" :url="post.photo"/>
+      <VBoxImage :ratio="1/1" :url="post.photo"/>
 
       <div class="tools">
         <div class="left">
@@ -23,7 +23,7 @@
     <div class="footer">
       <div class="comments">
         <p class="view-info">{{ post.viewCount }} viewing</p>
-        <VComment :name="user.name" :comment="user.comment"/>
+        <VComment :name="user.name" :comment="user.comment" :id="user.id"/>
         <p class="comment-count">View all {{ post.comments.count }} comments</p>
 
         <VComment
@@ -50,6 +50,7 @@
 
 import VIcon from '@/components/atoms/VIcon'
 import VImage from '@/components/atoms/VImage'
+import VBoxImage from '@/components/atoms/VBoxImage'
 import VComment from '@/components/molecules/VComment'
 import VUserLine from '@/components/molecules/VUserLine'
 import VPostCommentInput from "@/components/molecules/VPostCommentInput"
@@ -61,7 +62,13 @@ export default {
     VUserLine,
     VComment,
     VImage,
+    VBoxImage,
     VIcon
+  },
+  data() {
+    return {
+      imageWidth: 0
+    }
   },
   props: {
     user: {
@@ -92,9 +99,22 @@ export default {
       }
     },
   },
+  created() {
+
+  },
+  mounted() {
+    this.getWindowSize()
+    window.addEventListener("resize", this.getWindowSize)
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.getWindowSize)
+  },
   methods: {
     submit(text) {
       console.log("submit: ", text)
+    },
+    getWindowSize() {
+      this.imageWidth = this.$refs.post.offsetWidth - 2
     }
   }
 }

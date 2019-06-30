@@ -4,12 +4,18 @@
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>-->
-    <router-view/>
+    <router-view :key="$route.path"/>
   </div>
 </template>
 
 <script>
+
+
 import { mapState, mapActions } from "vuex"
+
+import VBoxImage from '@/components/atoms/VBoxImage'
+import VImage from '@/components/atoms/VImage'
+import VPhotoCard from '@/components/molecules/VPhotoCard'
 
 import style from './assets/style/_colors.sass'
 
@@ -18,13 +24,17 @@ import style from './assets/style/_colors.sass'
 export default {
   name: "App",
   components: {
-
+    VBoxImage,
+    VImage,
+    VPhotoCard
   },
   created() {
-    this.fetch()
+    this.fetchAuth()
+    this.fetchUsers()
+    this.fetchStories()
   },
   methods: {
-    ...mapActions({ fetch: 'timeline/fetchPopularPeople' })
+    ...mapActions({ fetchUsers: 'timeline/fetchPopularPeople', fetchStories: 'stories/fetchStories', fetchAuth: 'auth/fetchAuth' })
   },
 
 }
