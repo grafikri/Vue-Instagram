@@ -6,17 +6,17 @@
     @mouseout="handleMouseOut"
   >
     <VLink to="/dsda">
-      <VBoxImage :url="url"/>
+      <VBoxImage :url="url" />
 
       <div class="overlay"></div>
       <div class="box">
         <div class="box-item">
           <div class="container">
             <div class="item">
-              <VIconText :text="likeCount" icon="overlay-heart"/>
+              <VIconText :text="likeCount" icon="overlay-heart" />
             </div>
             <div class="item">
-              <VIconText :text="commentCount" icon="overlay-comment"/>
+              <VIconText :text="commentCount" icon="overlay-comment" />
             </div>
           </div>
         </div>
@@ -77,7 +77,7 @@ export default {
         top: 0
         width: 100%
         height: 100%
-        background: rgba(0, 0, 0, 0.1)
+        background: rgba(0, 0, 0, 0.4)
     .box
       display: none
     &[active]
