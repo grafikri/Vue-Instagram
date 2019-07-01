@@ -1,33 +1,33 @@
 <template>
   <div class="v-o-post" ref="post">
     <div class="header">
-      <VUserLine :photo="user.photo" :name="user.name" :size="32" :id="user.id"/>
+      <VUserLine :desc="user.desc" :photo="user.photo" :name="user.name" :size="32" :id="user.id" />
     </div>
     <div class="body">
-      <VBoxImage :ratio="1/1" :url="post.photo"/>
+      <VBoxImage :ratio="1/1" :url="post.photo" />
 
       <div class="tools">
         <div class="left">
           <div>
-            <VIcon class="fav"/>
+            <VIcon class="fav" />
           </div>
           <div>
-            <VIcon class="comment"/>
+            <VIcon class="comment" />
           </div>
         </div>
         <div class="right">
-          <VIcon class="bookmark"/>
+          <VIcon class="bookmark" />
         </div>
       </div>
     </div>
     <div class="footer">
       <div class="comments">
         <p class="view-info">{{ post.viewCount }} viewing</p>
-        <VComment :name="user.name" :comment="user.comment" :id="user.id"/>
+        <VComment :name="user.name" :comment="user.comment" :id="user.id" />
         <p class="comment-count">View all {{ post.comments.count }} comments</p>
 
         <VComment
-          v-for="(item, index) in post.comments.list"
+          v-for="(item, index) in post.comments"
           :key="index"
           :name="item.name"
           :comment="item.comment"
@@ -38,7 +38,7 @@
       <div class="border"></div>
       <div class="share-input">
         <div>
-          <VPostCommentInput @submit="submit"/>
+          <VPostCommentInput @submit="submit" />
         </div>
       </div>
     </div>
@@ -169,7 +169,7 @@ export default {
           color: gray
           margin:
             top: 3px
-            bottom: 3px
+            bottom: 10px
       .border
         border-top: $border-line
         margin:
