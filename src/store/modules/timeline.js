@@ -1,16 +1,46 @@
 import theMovieDb from '@/service/theMovieDb'
-import { randomPage } from '@/helpers'
+import { randomPage, getFakeImage, getFakeDateTime, randomNumber } from '@/helpers'
 
-const state = []
+const state = {
+  items: []
+}
 
 const mutations = {
-  addPosts(state, payload) {
+  updateAllPosts(state, payload) {
+    state.items = []
+    state.items = payload.list
+  }
+}
 
-    payload.forEach((item) => {
-      state.push(item)
+const getters = {
+  fetchPosts(state) {
+    return state.items.map(item => {
+
+      let comments = item.known_for.map(item => {
+        return {
+          name: item.original_title,
+          comment: item.overview
+        }
+      })
+
+      return {
+        user: {
+          id: item.id,
+          name: item.name,
+          photo: item.profile_path ? theMovieDb.common.images_uri + "w92" + item.profile_path : getFakeImage(),
+          comment: item.known_for[0].original_title + ': ' + item.known_for[0].overview,
+          desc: randomNumber() > 2 ? item.known_for[0].original_title : ""
+        },
+        post: {
+          photo: item.profile_path ? theMovieDb.common.images_uri + "original" + item.profile_path : getFakeImage(),
+          date: getFakeDateTime(),
+          viewCount: randomNumber(1000),
+          count: randomNumber(1000),
+          comments
+        }
+      }
     })
-
-  },
+  }
 }
 
 const actions = {
@@ -19,36 +49,7 @@ const actions = {
     theMovieDb.people.getPopular({ page: randomPage() }, success => {
 
       let response = JSON.parse(success)
-
-      let posts = response.results.map(item => {
-
-        let user = {
-          id: item.id,
-          name: item.name,
-          photo: theMovieDb.common.images_uri + "w92" + item.profile_path,
-          comment: item.known_for[0].original_title + ': ' + item.known_for[0].overview
-        }
-
-
-        let post = {
-          photo: theMovieDb.common.images_uri + "original" + item.profile_path,
-          date: "date",
-          viewCount: item.known_for.length,
-          count: item.known_for.length,
-          comments() {
-            return item.known_for.map(item => {
-              return {
-                name: item.original_title,
-                comment: item.overview
-              }
-            })
-          }
-        }
-
-        return { user, post }
-      })
-
-      context.commit('addPosts', posts)
+      context.commit('updateAllPosts', { list: response.results })
 
     }, fail => {
 
@@ -59,6 +60,7 @@ const actions = {
 export default {
   namespaced: true,
   mutations,
+  getters,
   actions,
   state
 }
