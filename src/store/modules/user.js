@@ -1,3 +1,6 @@
+/**
+ * This module uses for anyuser profile's page
+ */
 import theMovieDb from '@/service/theMovieDb'
 
 const state = {

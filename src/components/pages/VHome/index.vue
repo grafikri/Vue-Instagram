@@ -1,7 +1,7 @@
 <template>
   <div class="v-p-home">
     <VTimeLine
-      :suggestions_user="suggestions_user"
+      :suggestions_user="suggestions"
       :stories_user="stories"
       :timeLinePosts="timeline"
       :auth="auth"
@@ -20,10 +20,12 @@ export default {
     VTimeLine
   },
   computed: {
-    ...mapState(["timeline", "suggestions_user"]),
+    ...mapState(["suggestions_user"]),
     ...mapGetters({
+      suggestions: 'suggestions/lastUsers',
       stories: 'stories/lastStories',
-      auth: 'auth/auth'
+      auth: 'auth/auth',
+      timeline: 'timeline/fetchPosts'
     })
   },
 }

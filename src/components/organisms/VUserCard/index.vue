@@ -2,12 +2,12 @@
   <div class="v-m-user-card">
     <div class="image">
       <VButton :to="{name: 'profile' ,params: {id: id}}">
-        <VImage width="56px" rounded url="https://fakeimg.pl/200x200/?text=Photo&font=lobster"/>
+        <VBoxImage rounded :url="photo" />
       </VButton>
     </div>
     <div class="name">
       <VButton :to="{name: 'profile' ,params: {id: id}}">
-        <VUserName>{{ name }}</VUserName>
+        <VUserName :lines="1">{{ name }}</VUserName>
       </VButton>
     </div>
     <div class="desc">
@@ -16,14 +16,14 @@
       </VButton>
     </div>
     <div class="button">
-      <VButton primary filled to="/hulk">Takipt Et</VButton>
+      <VButton primary filled :to="{name: 'profile', params: {id: id}}">Takipt Et</VButton>
     </div>
   </div>
 </template>
 
 <script>
 
-import VImage from '@/components/atoms/VImage'
+import VBoxImage from '@/components/atoms/VBoxImage'
 import VUserName from '@/components/atoms/VUserName'
 import VUserDesc from '@/components/atoms/VUserDesc'
 import VButton from '@/components/atoms/VButton'
@@ -34,12 +34,13 @@ export default {
     VUserName,
     VUserDesc,
     VButton,
-    VImage
+    VBoxImage
   },
   props: {
-    id: [String, Number], // User id
-    name: String, // User name,
-    desc: String
+    id: [String, Number],
+    name: String,
+    desc: String,
+    photo: String
   }
 }
 </script>
@@ -52,6 +53,8 @@ export default {
     background: white
     padding: 15px
     .image
+      width: 56px
+      margin: auto
       margin:
         bottom: 10px
     .name

@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>-->
-    <router-view :key="$route.path"/>
+    <router-view :key="$route.path" />
   </div>
 </template>
 
@@ -32,9 +32,11 @@ export default {
     this.fetchAuth()
     this.fetchUsers()
     this.fetchStories()
+    this.fetchSuggestions()
+
   },
   methods: {
-    ...mapActions({ fetchUsers: 'timeline/fetchPopularPeople', fetchStories: 'stories/fetchStories', fetchAuth: 'auth/fetchAuth' })
+    ...mapActions({ fetchUsers: 'timeline/fetchPopularPeople', fetchStories: 'stories/fetchStories', fetchAuth: 'auth/fetchAuth', fetchSuggestions: 'suggestions/fetchSuggestions' })
   },
 
 }

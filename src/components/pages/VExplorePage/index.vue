@@ -1,18 +1,29 @@
 <template>
   <div>
-    <VExplore :explore="explore" :users="users"/>
+    <VExplore :explore="explore" :users="users" />
   </div>
 </template>
 
 <script>
-import { mapState } from "vuex"
+import { mapState, mapGetters, mapActions } from "vuex"
 import VExplore from '@/components/templates/VExplore'
 export default {
   name: "VDiscover",
+  created() {
+    this.fetchPosts()
+    this.fetchUsers()
+  },
+  methods: {
+    ...mapActions({
+      fetchPosts: 'explore/fetchExplorePosts',
+      fetchUsers: 'explore/fetchExploreUsers'
+    })
+  },
   computed: {
-    ...mapState({
-      "explore": state => state.explore,
-      "users": state => state.explore_new_user
+    ...mapGetters({
+      explore: 'explore/fetchPosts',
+      users: 'explore/fetchUsers',
+
     })
   },
   components: {
