@@ -1,6 +1,6 @@
 <template>
   <div class="v-p-profile-page">
-    <VProfile :user="user" :posts="posts" :saved="saved"/>
+    <VProfile :user="user" :posts="posts" :saved="saved" />
   </div>
 </template>
 
@@ -28,6 +28,7 @@ export default {
     user: 'user',
     'posts': state => state.posts.items.map((post) => {
       return {
+        id: post.id,
         photo: post.photo.thumb,
         likeCount: post.amount.like,
         commentCount: post.amount.comment
