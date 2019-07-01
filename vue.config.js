@@ -1,4 +1,7 @@
 module.exports = {
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/Vue-Instragram/'
+    : '/',
   css: {
     loaderOptions: {
       // pass options to sass-loader
