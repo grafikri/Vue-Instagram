@@ -5,7 +5,7 @@
     @mouseover="handleMouseOver"
     @mouseout="handleMouseOut"
   >
-    <VLink to="/dsda">
+    <VLink :to="{name: 'profile', params: {id: id}}">
       <VBoxImage :url="url" />
 
       <div class="overlay"></div>
@@ -59,6 +59,7 @@ export default {
     VLink
   },
   props: {
+    id: [String, Number],
     url: String,
     likeCount: [String, Number],
     commentCount: [String, Number]
