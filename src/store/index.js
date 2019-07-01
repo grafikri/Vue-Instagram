@@ -12,9 +12,12 @@ import stories from './modules/stories'
 import explore_new_user from './modules/explore_new_user'
 import explore from './modules/explore'
 import auth from './modules/auth'
+import app from './modules/app'
 
 export default new Vuex.Store({
+  namespaced: true,
   modules: {
+    app,
     posts,
     saved,
     user,
