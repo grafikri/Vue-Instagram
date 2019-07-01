@@ -4,18 +4,17 @@
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>-->
-    <router-view :key="$route.path" />
+    <router-view :key="$route.path" v-if="showApp" />
+    <VAppLoadingPage v-if="!showApp" />
   </div>
 </template>
 
 <script>
 
 
-import { mapState, mapActions } from "vuex"
+import { mapState, mapActions, mapMutations } from "vuex"
 
-import VBoxImage from '@/components/atoms/VBoxImage'
-import VImage from '@/components/atoms/VImage'
-import VPhotoCard from '@/components/molecules/VPhotoCard'
+import VAppLoadingPage from '@/components/pages/VAppLoadingPage'
 
 import style from './assets/style/_colors.sass'
 
@@ -24,19 +23,32 @@ import style from './assets/style/_colors.sass'
 export default {
   name: "App",
   components: {
-    VBoxImage,
-    VImage,
-    VPhotoCard
+    VAppLoadingPage,
   },
   created() {
+
+    //console.log(this.$store.state)
+    setTimeout(() => {
+      this.updateStatus({ loading: false, showApp: true })
+    }, 2000)
+
     this.fetchAuth()
-    this.fetchUsers()
+    this.fetchPopularPeople()
     this.fetchStories()
     this.fetchSuggestions()
 
   },
+  computed: {
+    ...mapState({
+      appLoading: state => state.app.loading,
+      showApp: state => state.app.showApp
+    })
+  },
   methods: {
-    ...mapActions({ fetchUsers: 'timeline/fetchPopularPeople', fetchStories: 'stories/fetchStories', fetchAuth: 'auth/fetchAuth', fetchSuggestions: 'suggestions/fetchSuggestions' })
+    ...mapActions({ fetchPopularPeople: 'timeline/fetchPopularPeople', fetchStories: 'stories/fetchStories', fetchAuth: 'auth/fetchAuth', fetchSuggestions: 'suggestions/fetchSuggestions' }),
+    ...mapMutations({
+      updateStatus: 'app/updateAppLoadingStatus'
+    })
   },
 
 }
