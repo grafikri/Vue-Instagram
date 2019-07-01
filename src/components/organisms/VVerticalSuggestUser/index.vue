@@ -2,7 +2,7 @@
   <div class="v-o-vertical-suggest-user">
     <div class="container">
       <div class="box" v-for="(user, index) in users" :key="index">
-        <VUserCard :id="user.id" :name="user.name" :desc="user.desc"/>
+        <VUserCard :photo="user.photo" :id="user.id" :name="user.name" :desc="user.desc" />
       </div>
     </div>
   </div>
