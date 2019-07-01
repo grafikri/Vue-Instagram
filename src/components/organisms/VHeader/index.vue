@@ -5,27 +5,27 @@
         <div class="left">
           <VButton to="/">
             <div>
-              <VLogo/>
+              <VLogo />
               <div class="vertical-line"></div>
               <div class="logo">
-                <VTextLogo/>
+                <VTextLogo />
               </div>
             </div>
           </VButton>
         </div>
         <div class="middle">
-          <VInputSearch/>
+          <VInputSearch />
         </div>
         <div class="right">
           <div>
-            <VButton to="explore">
-              <VIcon class="compass"/>
+            <VButton to="/explore">
+              <VIcon class="compass" />
             </VButton>
             <VButton>
-              <VIcon class="fav"/>
+              <VIcon class="fav" />
             </VButton>
             <VButton to="/auth">
-              <VIcon class="user"/>
+              <VIcon class="user" />
             </VButton>
           </div>
         </div>
