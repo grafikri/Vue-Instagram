@@ -10,7 +10,7 @@
         </div>
       </div>
 
-      <!-- <VVerticalSuggestUser :users="users"/> -->
+      <VVerticalSuggestUser :users="users" />
 
       <div class="space"></div>
 
@@ -18,7 +18,7 @@
         <VMiniTitle>Keşfet</VMiniTitle>
       </div>
 
-      <VShowCase :items="explore"/>
+      <VShowCase :items="explore" />
     </VMemberBox>
   </div>
 </template>
