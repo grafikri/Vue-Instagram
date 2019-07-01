@@ -69,7 +69,7 @@ const actions = {
       let response = JSON.parse(success)
       let posts = response.profiles.map((item, index) => {
         return {
-          id: index + 1,
+          id: userId,
           photo: {
             thumb: theMovieDb.common.images_uri + "w500" + item.file_path,
             large: theMovieDb.common.images_uri + "w780" + item.file_path,

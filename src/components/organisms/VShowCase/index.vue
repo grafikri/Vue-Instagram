@@ -4,6 +4,7 @@
       <div class="row" v-for="(item, itemIndex) in items" :key="itemIndex">
         <div class="item">
           <VPhotoCard
+            :id="item.id"
             :url="item.photo"
             :likeCount="item.likeCount"
             :commentCount="item.commentCount"
