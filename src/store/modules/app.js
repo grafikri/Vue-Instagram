@@ -13,14 +13,42 @@ const state = {
 
 
 const mutations = {
-  updateAppLoadingStatus(state, payload) {
-    state.loading = payload.loading
+  updateAppStatus(state, payload) {
     state.showApp = payload.showApp
+  }
+}
+
+const actions = {
+  appStarted({ dispatch, commit }) {
+
+
+    dispatch('auth/fetchAuth', {}, { root: true })
+      .then(() => {
+
+        return dispatch('stories/fetchStories', {}, { root: true })
+
+      }).then(() => {
+
+        return dispatch('suggestions/fetchSuggestions', {}, { root: true })
+
+      }).then((data) => {
+
+        commit('updateAppStatus', { showApp: true })
+
+      }).catch(error => {
+
+        //TODO
+
+      })
+
+
+
   }
 }
 
 export default {
   namespaced: true,
+  actions,
   mutations,
   state,
 }

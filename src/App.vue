@@ -27,29 +27,16 @@ export default {
   },
   created() {
 
-    //console.log(this.$store.state)
-    setTimeout(() => {
-      this.updateStatus({ loading: false, showApp: true })
-    }, 2000)
+    let obj = { name: "isim" }
 
-    this.fetchAuth()
-    this.fetchPopularPeople()
-    this.fetchStories()
-    this.fetchSuggestions()
+    this.$store.dispatch('app/appStarted')
 
   },
   computed: {
     ...mapState({
-      appLoading: state => state.app.loading,
       showApp: state => state.app.showApp
     })
-  },
-  methods: {
-    ...mapActions({ fetchPopularPeople: 'timeline/fetchPopularPeople', fetchStories: 'stories/fetchStories', fetchAuth: 'auth/fetchAuth', fetchSuggestions: 'suggestions/fetchSuggestions' }),
-    ...mapMutations({
-      updateStatus: 'app/updateAppLoadingStatus'
-    })
-  },
+  }
 
 }
 </script>
