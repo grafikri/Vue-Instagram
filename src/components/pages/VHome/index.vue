@@ -11,13 +11,21 @@
 
 <script>
 
-import { mapState, mapGetters } from "vuex"
+import { mapState, mapGetters, mapActions } from "vuex"
 import VTimeLine from "@/components/templates/VTimeLine"
 
 export default {
   name: "VHome",
   components: {
     VTimeLine
+  },
+  created() {
+    this.fetchPopularPeople()
+  },
+  methods: {
+    ...mapActions({
+      fetchPopularPeople: 'timeline/fetchPopularPeople'
+    })
   },
   computed: {
     ...mapState(["suggestions_user"]),
