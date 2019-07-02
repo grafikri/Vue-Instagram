@@ -39,22 +39,28 @@ const getters = {
 const actions = {
   fetchAuth(context, payload) {
 
-    let userId = 6193 // Leonardo DiCaprio ID
+    return new Promise((resolve, reject) => {
 
-    theMovieDb.people.getById({ id: userId }, success => {
-      let response = JSON.parse(success)
-      let user = {
-        id: response.id,
-        name: response.name,
-        full_name: response.name,
-        photo: theMovieDb.common.images_uri + "w154" + response.profile_path,
-      }
-      context.commit("updateAuth", { user })
+      let userId = 6193 // Leonardo DiCaprio ID
 
-    }, fail => {
+      theMovieDb.people.getById({ id: userId }, success => {
+        let response = JSON.parse(success)
+        let user = {
+          id: response.id,
+          name: response.name,
+          full_name: response.name,
+          photo: theMovieDb.common.images_uri + "w154" + response.profile_path,
+        }
+        context.commit("updateAuth", { user })
+        resolve()
+
+      }, fail => {
+
+        reject("Auth information couldn't take")
+
+      })
 
     })
-
 
   }
 }
