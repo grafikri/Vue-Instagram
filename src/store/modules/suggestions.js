@@ -33,17 +33,20 @@ const getters = {
 const actions = {
   fetchSuggestions(context) {
 
-    theMovieDb.people.getPopular({ page: randomPage() }, success => {
+    return new Promise((resolve, reject) => {
+      theMovieDb.people.getPopular({ page: randomPage() }, success => {
 
-      let response = JSON.parse(success)
-      context.commit('updateAllSuggestions', { list: response.results })
+        let response = JSON.parse(success)
+        context.commit('updateAllSuggestions', { list: response.results })
 
-    }, fail => {
+        resolve()
 
+      }, fail => {
+
+        reject("Suggestions coulnd't take")
+
+      })
     })
-
-
-
   }
 }
 

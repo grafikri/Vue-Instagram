@@ -34,14 +34,23 @@ const mutations = {
 const actions = {
   fetchStories(context) {
 
-    theMovieDb.people.getPopular({ page: randomPage() }, success => {
+    return new Promise((resolve, reject) => {
 
-      let response = JSON.parse(success)
-      context.commit('updateAllStroies', { list: response.results })
+      theMovieDb.people.getPopular({ page: randomPage() }, success => {
 
-    }, fail => {
+        let response = JSON.parse(success)
+        context.commit('updateAllStroies', { list: response.results })
+
+        resolve()
+
+      }, fail => {
+
+        reject("Stories couldn't take")
+
+      })
 
     })
+
 
   }
 }
