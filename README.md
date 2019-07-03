@@ -2,9 +2,9 @@
 
 This app was made with Vue JS framework to understand and show power of Vue and Its tools on SPA. You can see demo with link that is below.
 
-All of data in the app was provided with The Movie DB database using Its Restful API via JS SDK. You can access both SDK and API documentation <a href="https://github.com/cavestri/themoviedb-javascript-library" target="_blank">here</a> and <a href="https://www.themoviedb.org/documentation/api" target="_blank">here</a>
+All of data in the app was provided with The Movie DB database using Its Restful API via JS SDK. You can access both SDK and API documentation [here](https://github.com/cavestri/themoviedb-javascript-library) and (https://www.themoviedb.org/documentation/api)
 
-Also there are some to do where below to complete the project. You can see those bottom of the page.
+Also there are some to do to complete the project. You can see those bottom of the page.
 
 # [Demo](https://grafikri.github.io/Vue-Instagram/#/)
 
