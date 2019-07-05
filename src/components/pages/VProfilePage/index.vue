@@ -1,6 +1,6 @@
 <template>
   <div class="v-p-profile-page">
-    <VProfile :user="user" :posts="posts" :saved="saved" />
+    <VProfile :user="user" :posts="posts" :saved="saved" :pageLoading="pageLoading" />
   </div>
 </template>
 
@@ -15,17 +15,25 @@ export default {
     VProfile,
   },
   created() {
-
-    let userId = this.$route.name == "auth" ? this.$store.state.auth.auth.id : this.$route.params.id
-
-    this.fetchUser({ id: userId })
-    this.fetchPosts({ id: userId })
+    this.setupPage()
   },
   methods: {
-    ...mapActions({ fetchUser: 'user/fetchUser', fetchPosts: 'posts/fetchPosts' })
+    setupPage() {
+      let userId = this.$route.name == "auth" ? this.$store.state.auth.auth.id : this.$route.params.id
+
+      this.$store.commit('app/updatePageStatus', { pageVisible: false })
+      this.$store.dispatch('user/fetchUser', { id: userId }).then(() => {
+        return this.$store.dispatch('posts/fetchPosts', { id: userId })
+      }).then(() => {
+        this.$store.commit('app/updatePageStatus', { pageVisible: true })
+      }).catch(() => {
+
+      })
+    }
   },
   computed: mapState({
     user: 'user',
+    pageLoading: state => state.app.showPage ? false : true,
     'posts': state => state.posts.items.map((post) => {
       return {
         id: post.id,

@@ -5,6 +5,7 @@
       :stories_user="stories"
       :timeLinePosts="timeline"
       :auth="auth"
+      :pageLoading="pageLoading"
     />
   </div>
 </template>
@@ -20,15 +21,22 @@ export default {
     VTimeLine
   },
   created() {
-    this.fetchPopularPeople()
+    this.setupPage()
   },
   methods: {
-    ...mapActions({
-      fetchPopularPeople: 'timeline/fetchPopularPeople'
-    })
+    setupPage() {
+      this.$store.commit('app/updatePageStatus', { pageVisible: false })
+      this.$store.dispatch('timeline/fetchPopularPeople').then(() => {
+        this.$store.commit('app/updatePageStatus', { pageVisible: true })
+      }).catch(() => {
+
+      })
+    }
   },
   computed: {
-    ...mapState(["suggestions_user"]),
+    ...mapState({
+      pageLoading: state => state.app.showPage ? false : true,
+    }),
     ...mapGetters({
       suggestions: 'suggestions/lastUsers',
       stories: 'stories/lastStories',
