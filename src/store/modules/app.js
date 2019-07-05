@@ -8,13 +8,21 @@ const state = {
   /**
    * When this variables is true that means everything is normal when app first opening. (Server connectins, etc..)
    */
-  showApp: false
+  showApp: false,
+
+  /**
+   * When page loading because of API connection It will be true. When API connection finished, It will turn on to true and page will be displayed
+   */
+  showPage: false
 }
 
 
 const mutations = {
   updateAppStatus(state, payload) {
     state.showApp = payload.showApp
+  },
+  updatePageStatus(state, payload) {
+    state.showPage = payload.pageVisible
   }
 }
 
