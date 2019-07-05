@@ -1,6 +1,6 @@
 <template>
   <div class="v-t-explore">
-    <VMemberBox>
+    <VMemberBox :isLoading="pageLoading">
       <div class="top-title">
         <div class="left">
           <VMiniTitle>Yeni insanları keşfet</VMiniTitle>
@@ -42,7 +42,11 @@ export default {
   },
   props: {
     users: Array,
-    explore: Array
+    explore: Array,
+    pageLoading: {
+      type: Boolean,
+      default: true
+    }
   }
 }
 </script>

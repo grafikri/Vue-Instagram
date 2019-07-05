@@ -24,28 +24,29 @@ const mutations = {
 const actions = {
   fetchUser(context, payload) {
 
-    let userId = payload.id
+    return new Promise((resolve, reject) => {
+      let userId = payload.id
 
-    theMovieDb.people.getById({ id: userId }, success => {
-      let response = JSON.parse(success)
+      theMovieDb.people.getById({ id: userId }, success => {
+        let response = JSON.parse(success)
 
-      let user = {
-        name: response.name,
-        desc: response.biography,
-        avatar: theMovieDb.common.images_uri + "w154" + response.profile_path,
-        quantity: {
-          posts: "32k",
-          followers: "10k",
-          followings: "5k"
+        let user = {
+          name: response.name,
+          desc: response.biography,
+          avatar: theMovieDb.common.images_uri + "w154" + response.profile_path,
+          quantity: {
+            posts: "32k",
+            followers: "10k",
+            followings: "5k"
+          }
         }
-      }
-      context.commit("updateUser", { user })
+        context.commit("updateUser", { user })
+        resolve()
 
-
-    }, fail => {
-
+      }, fail => {
+        reject("The User information coulnd't be get")
+      })
     })
-
 
   }
 }

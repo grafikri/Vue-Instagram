@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VMemberBox>
+    <VMemberBox :isLoading="pageLoading">
       <VUserLargeViewer
         :photo="user.avatar"
         :name="user.name"
@@ -11,9 +11,9 @@
       />
 
       <VTabsHorizontal>
-        <VTabText @click="handleClickPost" :active="postTab" icon="grid" text="GÖNDERİLER"/>
-        <VTabText @click="handleClickIGTV" :active="igtvTab" icon="igtv" text="IGTV"/>
-        <VTabText @click="handleClickSaved" :active="savedTab" icon="saved" text="KAYDEDİLENLER"/>
+        <VTabText @click="handleClickPost" :active="postTab" icon="grid" text="GÖNDERİLER" />
+        <VTabText @click="handleClickIGTV" :active="igtvTab" icon="igtv" text="IGTV" />
+        <VTabText @click="handleClickSaved" :active="savedTab" icon="saved" text="KAYDEDİLENLER" />
         <VTabText
           @click="handleClickTagged"
           :active="taggedTab"
@@ -59,6 +59,10 @@ export default {
         return []
       }
     },
+    pageLoading: {
+      type: Boolean,
+      default: true
+    }
   },
   components: {
     VMemberBox,

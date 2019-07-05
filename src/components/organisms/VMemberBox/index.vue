@@ -1,12 +1,16 @@
 <template>
   <div class="v-o-member-box">
     <div class="header-container" ref="header">
-      <VHeader :minify="minify"/>
+      <VHeader :minify="minify" />
     </div>
     <div class="space" ref="space"></div>
     <VLayout>
+      <div class="spinner" v-if="isLoading">
+        <VSpinner />
+      </div>
+
       <div class="container">
-        <slot></slot>
+        <slot v-if="!isLoading"></slot>
       </div>
 
       <div class="footer">
@@ -23,18 +27,26 @@
 import VHeader from '@/components/organisms/VHeader'
 import VLayout from '@/components/atoms/VLayout'
 import VFooter from '@/components/organisms/VFooter'
+import VSpinner from '@/components/atoms/VSpinner'
 
 export default {
   name: "VMemberBox",
   components: {
     VHeader,
     VLayout,
-    VFooter
+    VFooter,
+    VSpinner
   },
   data() {
     return {
       minify: false
     }
+  },
+  props: {
+    isLoading: {
+      type: Boolean,
+      default: true
+    },
   },
   created() {
     window.addEventListener('scroll', this.watchScroll)
@@ -62,6 +74,8 @@ export default {
       position: fixed
       z-index: 99
       width: 100%
+    .spinner
+      text-align: center
     .container, .footer
       box-sizing: border-box
       padding:
