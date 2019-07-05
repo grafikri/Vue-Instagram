@@ -33,7 +33,7 @@ const getters = {
     return state.users.map(item => {
       return {
         id: item.id,
-        photo: item.profile_path ? theMovieDb.common.images_uri + "w500" + item.profile_path : getFakeImage(),
+        photo: item.profile_path ? theMovieDb.common.images_uri + "w92" + item.profile_path : getFakeImage(),
         name: item.name,
         desc: "Follows you"
       }
@@ -44,24 +44,38 @@ const getters = {
 const actions = {
   fetchExplorePosts(context) {
 
-    theMovieDb.people.getPopular({ page: randomPage() }, success => {
+    return new Promise((resolve, reject) => {
 
-      let response = JSON.parse(success)
-      context.commit('updateAllPosts', { list: response.results })
+      theMovieDb.people.getPopular({ page: randomPage() }, success => {
 
-    }, fail => {
+        let response = JSON.parse(success)
+        context.commit('updateAllPosts', { list: response.results })
+        resolve()
+
+      }, fail => {
+
+        reject("The explore posts couldn't be fetched")
+
+      })
 
     })
 
   },
   fetchExploreUsers(context) {
 
-    theMovieDb.people.getPopular({ page: randomPage() }, success => {
+    return new Promise((resolve, reject) => {
 
-      let response = JSON.parse(success)
-      context.commit('updateAllUsers', { list: response.results })
+      theMovieDb.people.getPopular({ page: randomPage() }, success => {
 
-    }, fail => {
+        let response = JSON.parse(success)
+        context.commit('updateAllUsers', { list: response.results })
+        resolve()
+
+      }, fail => {
+
+        reject("The explore users couldn't be fetched")
+
+      })
 
     })
 

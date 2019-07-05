@@ -63,34 +63,36 @@ const mutations = {
 
 const actions = {
   fetchPosts(context, payload) {
-    let userId = payload.id
 
-    theMovieDb.people.getImages({ id: userId }, success => {
-      let response = JSON.parse(success)
-      let posts = response.profiles.map((item, index) => {
-        return {
-          id: userId,
-          photo: {
-            thumb: theMovieDb.common.images_uri + "w500" + item.file_path,
-            large: theMovieDb.common.images_uri + "w780" + item.file_path,
-          },
-          amount: {
-            comment: item.vote_count,
-            like: item.vote_average
-          },
-          comments: [
+    return new Promise((resolve, reject) => {
+      let userId = payload.id
 
-          ]
-        }
+      theMovieDb.people.getImages({ id: userId }, success => {
+        let response = JSON.parse(success)
+        let posts = response.profiles.map((item, index) => {
+          return {
+            id: userId,
+            photo: {
+              thumb: theMovieDb.common.images_uri + "w500" + item.file_path,
+              large: theMovieDb.common.images_uri + "w780" + item.file_path,
+            },
+            amount: {
+              comment: item.vote_count,
+              like: item.vote_average
+            },
+            comments: [
+
+            ]
+          }
+        })
+
+        context.commit("clearList")
+        context.commit("addNewPostLists", { posts })
+        resolve()
+
+      }, fail => {
+        reject("The posts list coulnd' be get")
       })
-
-
-      context.commit("clearList")
-      context.commit("addNewPostLists", { posts })
-
-
-    }, fail => {
-
     })
 
   }
