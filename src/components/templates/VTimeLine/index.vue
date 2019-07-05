@@ -1,10 +1,10 @@
 <template>
   <div class="v-t-time-line">
-    <VMemberBox>
+    <VMemberBox :isLoading="pageLoading">
       <div class="container">
         <div class="left">
           <div class="post-container" v-for="(content, index) in timeLinePosts" :key="index">
-            <VPost :post="content.post" :user="content.user"/>
+            <VPost :post="content.post" :user="content.user" />
           </div>
         </div>
         <div class="right">
@@ -18,13 +18,13 @@
             />
           </div>
           <div class="section">
-            <VUserBrowse :scroll="180" title="Stories" :users="stories_user"/>
+            <VUserBrowse :scroll="180" title="Stories" :users="stories_user" />
           </div>
           <div class="section">
-            <VUserBrowse title="Suggestions for you" :users="suggestions_user"/>
+            <VUserBrowse title="Suggestions for you" :users="suggestions_user" />
           </div>
           <div class="section">
-            <VMiniFooter/>
+            <VMiniFooter />
           </div>
         </div>
       </div>
@@ -53,7 +53,11 @@ export default {
     suggestions_user: Array,
     stories_user: Array,
     timeLinePosts: Array,
-    auth: Object
+    auth: Object,
+    pageLoading: {
+      type: Boolean,
+      default: true
+    }
   }
 }
 </script>
