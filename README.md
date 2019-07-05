@@ -36,7 +36,4 @@ $ npm run serve // serve at localhost:8080
 - Responsive behavior for explore page
 - Responsive behavior for footer
 - Auth and user difference detect for profile page
-- Home page loading icon
-- Profile page loading icon
-- Explore page loading icon
 - Profile page tagged and saved section
