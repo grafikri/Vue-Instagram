@@ -102,7 +102,9 @@ export default {
         .section
           margin:
             bottom: 15px
-
-  
-
+  @media (max-width: $tablet-breakpoint)
+    .v-t-time-line
+      .container
+        .right
+          display: none
 </style>
