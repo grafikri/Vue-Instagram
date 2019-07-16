@@ -34,7 +34,6 @@ $ npm run serve // serve at localhost:8080
 - Sensitive comment lines
 - Reactive search bar
 - Language support
-- Responsive behavior for home page
 - Responsive behavior for explore page
 - Responsive behavior for footer
 - Auth and user difference detect for profile page
