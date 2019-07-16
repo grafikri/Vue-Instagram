@@ -8,23 +8,25 @@
           </div>
         </div>
         <div class="right">
-          <div class="section">
-            <VUserLine
-              :id="auth.id"
-              :photo="auth.photo"
-              :name="auth.name"
-              :desc="auth.full_name"
-              :size="52"
-            />
-          </div>
-          <div class="section">
-            <VUserBrowse :scroll="180" title="Stories" :users="stories_user" />
-          </div>
-          <div class="section">
-            <VUserBrowse title="Suggestions for you" :users="suggestions_user" />
-          </div>
-          <div class="section">
-            <VMiniFooter />
+          <div class="inner" v-bind:class="{active : isFixed}">
+            <div class="section">
+              <VUserLine
+                :id="auth.id"
+                :photo="auth.photo"
+                :name="auth.name"
+                :desc="auth.full_name"
+                :size="52"
+              />
+            </div>
+            <div class="section">
+              <VUserBrowse :scroll="180" title="Stories" :users="stories_user" />
+            </div>
+            <div class="section">
+              <VUserBrowse title="Suggestions for you" :users="suggestions_user" />
+            </div>
+            <div class="section">
+              <VMiniFooter />
+            </div>
           </div>
         </div>
       </div>
@@ -42,6 +44,11 @@ import VMiniFooter from '@/components/molecules/VMiniFooter'
 
 export default {
   name: "VTimeLine",
+  data() {
+    return {
+      isFixed: false // It provides anchor
+    }
+  },
   components: {
     VMemberBox,
     VPost,
@@ -58,13 +65,25 @@ export default {
       type: Boolean,
       default: true
     }
-  }
+  },
+  methods: {
+    detectScroll(e) {
+      this.isFixed = window.scrollY > 52
+    }
+  },
+  created() {
+    window.addEventListener('scroll', this.detectScroll)
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.detectScroll)
+  },
 }
 </script>
 
 
 <style lang="sass" scoped>
   .v-t-time-line
+    position: relative
     .container
       display: flex
       .left
@@ -76,8 +95,14 @@ export default {
         width: 290px
         padding:
           left: 30px
+        .inner.active
+          width: inherit
+          position: fixed
+          top: 78px
         .section
           margin:
             bottom: 15px
+
+  
 
 </style>
