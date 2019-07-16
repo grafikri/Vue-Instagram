@@ -6,7 +6,7 @@
 
 <style lang="sass" scoped>
   .v-a-layout
-    max-width: 950px
+    max-width: $container-width
     margin: auto
 </style>
 

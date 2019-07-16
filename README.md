@@ -9,6 +9,7 @@ Also there are some to do to complete the project. You can see those bottom of t
 # [Demo](https://grafikri.github.io/Vue-Instagram/#/)
 
 ## Project setup
+
 ```
 $ git clone https://github.com/grafikri/Vue-Instagram.git
 $ cd Vue-Instagram
@@ -17,6 +18,7 @@ $ npm run serve // serve at localhost:8080
 ```
 
 ## Used technologies
+
 - Vue
 - Vue Router
 - Vuex
@@ -25,14 +27,13 @@ $ npm run serve // serve at localhost:8080
 - The Movie DB javascript library
 
 ## To do
-- Home page anchor
+
 - Reactive post like button
 - Reactive post bookmark button
 - Reactive post comment
 - Sensitive comment lines
 - Reactive search bar
 - Language support
-- Responsive behavior for home page
 - Responsive behavior for explore page
 - Responsive behavior for footer
 - Auth and user difference detect for profile page
